@@ -1,4 +1,5 @@
-﻿namespace Final_Project___Magic_App.Models
+﻿//https://github.com/Myniad/Final-Project---Magic-App
+namespace Final_Project___Magic_App.Models
 {
     public class CardModel
     {
@@ -34,11 +35,11 @@
             public bool promo { get; set; }
             public bool reprint { get; set; }
             public bool variation { get; set; }
-            public string set_id { get; set; }
+            //public string set_id { get; set; }
             public string set { get; set; }
-            public string set_name { get; set; }
+            //public string set_name { get; set; }
             public string set_type { get; set; }
-            public string set_uri { get; set; }
+            //public string set_uri { get; set; }
             public string set_search_uri { get; set; }
             public string scryfall_set_uri { get; set; }
             public string rulings_uri { get; set; }
