@@ -8,6 +8,7 @@ namespace Final_Project___Magic_App.Controllers
     [ApiController]
     public class CardController : ControllerBase
     {
+        
 
         //requesting all cards from scryfall, Probably not going to use this but adding it in for testing purposes
 
@@ -18,24 +19,29 @@ namespace Final_Project___Magic_App.Controllers
         }
 
         //searching cards by the exact name note that this should be case insensitive
-        [HttpGet] 
+        [HttpGet("SearchExact")]
         public CardModel searchExact(string cardName)
         {
-            return new CardModel();
+            //example request https://api.scryfall.com/cards/search?q=${cardName}
+            return CardDAL.GetExactCard(cardName);
         }
 
         //searching for cards using a fuzzy search
         //fuzzy is a search for all cards matching what the user has typed in 
-        [HttpGet] 
-        public List<CardModel> searchFuzzy(string cardName) 
-        { 
+
+        [HttpGet("SearchFuzzy")]
+        public List<CardModel> searchFuzzy(string cardName)
+        {
+            //example request https://api.scryfall.com/cards/named?fuzzy={search}
             return new List<CardModel>();
         }
 
-        [HttpGet]
+        [HttpGet("SearchType")]
         public List<CardModel> searchByType(string type)
         {
             return new List<CardModel>();
         }
     }
 }
+
+
