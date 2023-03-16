@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { card } from '../Models/card';
+import { CardModel } from '../Models/CardModel';
 import { CardsearchService } from '../Services/cardsearch.service';
 
 
@@ -10,7 +10,7 @@ import { CardsearchService } from '../Services/cardsearch.service';
 })
 export class CardcomponentComponent {
   cardName:string = "Counterspell";
-
+  cardmodel:CardModel = {} as CardModel;
   constructor(private CardsearchService:CardsearchService){}
 
   ngOnInit():void{
@@ -18,9 +18,11 @@ export class CardcomponentComponent {
   }
 
   getCardExact():void{
-    console.log(this.cardName)
-    this.CardsearchService.getCardExact(this.cardName).subscribe((response:card)=>{
-      console.log(response)
+    console.log(this.cardName);
+    this.CardsearchService.getCardExact(this.cardName).subscribe((response:CardModel)=>{
+      console.log(response);
+      this.cardmodel= response;
+      
     })
   }
 

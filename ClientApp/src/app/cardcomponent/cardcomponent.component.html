@@ -4,3 +4,11 @@
 </p>
 <input type="text" [(ngModel)]="cardName">
 <button (click)="getCardExact()">Submit</button>
+<div *ngFor="let c of cardmodel.data">
+    <img src="{{c.image_uris.small}}" alt="">
+    <p>{{c.prices.usd|currency}}</p>
+    <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
+    
+</div>
+
+
