@@ -10,7 +10,13 @@ export class CardsearchService {
 
   constructor(@Inject('BASE_URL') private baseUrl: string, private http: HttpClient) { }
 
+
+  
+
+
+
+
   getCardExact(cardName:string):Observable<card>{
-    return this.http.get<card>(`${this.baseUrl}api/Card?cardName=${cardName}`)
+    return this.http.get<card>(`${this.baseUrl}api/Card/SearchExact?cardName=${cardName}`, {})
   }
 }

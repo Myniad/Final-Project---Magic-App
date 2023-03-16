@@ -9,7 +9,7 @@ namespace Final_Project___Magic_App.Models
 
         {
             //Setup
-            string url = $"https://api.scryfall.com/cards/search?q=${cardName}";
+            string url = $"https://api.scryfall.com/cards/search?q={cardName}";
 
 
             //request

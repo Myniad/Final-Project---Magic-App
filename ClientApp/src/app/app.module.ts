@@ -28,6 +28,7 @@ import { CardcomponentComponent } from './cardcomponent/cardcomponent.component'
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
+      { path: 'Card', component: CardcomponentComponent}
     ])
   ],
   providers: [],

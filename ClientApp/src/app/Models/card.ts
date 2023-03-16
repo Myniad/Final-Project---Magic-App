@@ -7,5 +7,5 @@ export interface card {
     rarity:string;
     cmc:number;
     oracle_text:string;
-    image_normal:string;
+    normal:string;
 }
