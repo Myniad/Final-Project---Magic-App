@@ -14,7 +14,7 @@ export interface Datum {
     prices: Prices;
     purchase_uris: Purchase_Uris;
     games:string[];
-
+    card_back_id:string;
 }
 
 export interface Image_Uris{
