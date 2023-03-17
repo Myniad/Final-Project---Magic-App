@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardcomponentComponent } from './cardcomponent/cardcomponent.component';
+import { SinglecardComponent } from './singlecard/singlecard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CardcomponentComponent } from './cardcomponent/cardcomponent.component'
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'Card', component: CardcomponentComponent}
+      { path: 'Card', component: CardcomponentComponent},
+      { path: 'SingleCard', component: SinglecardComponent},
     ])
   ],
   providers: [],
