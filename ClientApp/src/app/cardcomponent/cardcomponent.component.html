@@ -5,10 +5,19 @@
 <input type="text" [(ngModel)]="cardName">
 <button (click)="getCardExact()">Submit</button>
 <div *ngFor="let c of cardmodel.data">
-    <img src="{{c.image_uris.small}}" alt="">
-    <p>{{c.prices.usd|currency}}</p>
-    <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
     
+    <img src="{{c.image_uris.small}}" alt="">      
+    <!-- <div *ngIf="c.games[0] == 'paper'">     -->
+        <p>{{c.prices.usd|currency}}</p>
+        <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
+    <!-- </div> -->
+
+    <!-- <div *ngIf="c.games[0] == 'arena'">
+        <h2>Arena</h2>
+        <img src="{{c.image_uris.small}}" alt="">
+        <p>{{c.prices.usd|currency}}</p>
+        <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
+    </div> -->
 </div>
 
 

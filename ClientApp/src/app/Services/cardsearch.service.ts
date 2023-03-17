@@ -15,7 +15,6 @@ export class CardsearchService {
 
 
 
-
   getCardExact(cardName:string):Observable<CardModel>{
     return this.http.get<CardModel>(`${this.baseUrl}api/Card/SearchExact?cardName=${cardName}`, {})
   }

@@ -13,6 +13,7 @@ export interface Datum {
     image_uris: Image_Uris;
     prices: Prices;
     purchase_uris: Purchase_Uris;
+    games:string[];
 
 }
 
