@@ -1,33 +1,14 @@
-<p>
-    enter text below
-
-</p>
-<input type="text" [(ngModel)]="cardName">
-<button (click)="getCardExact()">Submit</button>
-<div *ngFor="let c of cardmodel.data; index as i">
-    
-          
-    <div *ngIf="ispaper[i]">
-        <p>title: {{c.name}}</p>
-        <div *ngIf="c.image_uris">
-            <img src="{{c.image_uris.small}}" alt="">
-            <p>{{c.card_back_id}}</p>  
+  <div class="cardlist">
+    <div *ngFor="let c of cardmodel.data; index as i" class="cardcontainer">
+      <div *ngIf="ispaper[i]" class="card">
+        <div *ngIf="c.image_uris" class="img-container">
+          <img src="{{ c.image_uris.border_crop }}" alt="" />
         </div>
-        <img src="{{c.card_back_id}}" alt="">  
+        <p>{{ c.name }}</p>
         <div *ngIf="!c.image_uris">
-            
-            <p>Image not found</p> 
-        </div>  
-        <p>{{c.prices.usd|currency}}</p>
-        <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
+          <p>Image not found</p>
+        </div>
+        <!-- <a href="{{ c.purchase_uris.tcgplayer }}">tcgplayer {{ c.prices.usd | currency }}</a> -->
+      </div>
     </div>
-
-    <!-- <div *ngIf="c.games[0] == 'arena'">
-        <h2>Arena</h2>
-        <img src="{{c.image_uris.small}}" alt="">
-        <p>{{c.prices.usd|currency}}</p>
-        <a href="{{c.purchase_uris.tcgplayer}}">tcgplayer</a>
-    </div> -->
-</div>
-
-
+  </div>

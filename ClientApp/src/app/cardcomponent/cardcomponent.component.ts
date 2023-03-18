@@ -2,20 +2,31 @@ import { Component } from '@angular/core';
 import { CardModel } from '../Models/CardModel';
 import { Datum } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cardcomponent',
   templateUrl: './cardcomponent.component.html',
   styleUrls: ['./cardcomponent.component.css']
 })
+
 export class CardcomponentComponent {
-  cardName:string = "Counterspell";
+  public cardName:string = "";
   cardmodel:CardModel = {} as CardModel;
-  constructor(private CardsearchService:CardsearchService){}
+  constructor(private CardsearchService:CardsearchService, private route:ActivatedRoute, private router:Router){
+    router.events.subscribe((val) => {
+      this.cardName = this.route.snapshot.paramMap.get('cardName') || "";
+      this.getCardExact()
+    })
+  }
   ispaper:boolean[]= [];
   ngOnInit():void{
+    this.cardName = this.route.snapshot.paramMap.get('cardName') || "";
     this.getCardExact();
+  }
+
+  onSubmit():void{
+    this.getCardExact()
   }
 
   getCardExact():void{

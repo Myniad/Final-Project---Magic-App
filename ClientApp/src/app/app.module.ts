@@ -11,6 +11,7 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardcomponentComponent } from './cardcomponent/cardcomponent.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
+import { DeckComponent } from './Decks/deck/deck.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SinglecardComponent } from './singlecard/singlecard.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    CardcomponentComponent
+    CardcomponentComponent,
+    DeckComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -31,6 +33,9 @@ import { SinglecardComponent } from './singlecard/singlecard.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Card', component: CardcomponentComponent},
       { path: 'SingleCard', component: SinglecardComponent},
+      { path: 'Deck', component: DeckComponent},
+      { path: 'search/:cardName', component: CardcomponentComponent},
+
     ])
   ],
   providers: [],

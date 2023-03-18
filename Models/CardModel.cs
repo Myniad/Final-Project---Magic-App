@@ -29,6 +29,7 @@ namespace Final_Project___Magic_App.Models
         public string mana_cost { get; set; }
         public float cmc { get; set; }
         public string type_line { get; set; }
+        //public Card_Faces card_faces { get; set; }
         public string oracle_text { get; set; }
         public string[] colors { get; set; }
         public string[] color_identity { get; set; }
@@ -131,6 +132,11 @@ namespace Final_Project___Magic_App.Models
         public string cardhoarder { get; set; }
     }
 
+    //public class Card_Faces
+    //{
+    //    public Image_Uris image_uris;
+    //    //somewhere we are using the wrong data type
+    //}
 
     //public class CardModel
     //{
