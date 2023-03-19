@@ -1,21 +1,42 @@
 
-  <div class="cardlist">
-    <ng-container *ngIf="cardmodel.data else notFound">
-      <div *ngFor="let c of cardmodel.data; index as i" class="cardcontainer">
-        <div *ngIf="ispaper[i]" class="card">
-          <div *ngIf="c.image_uris" class="img-container">
-            <img src="{{ c.image_uris.border_crop }}" alt="" />
-          </div>
-          <p>{{ c.name }}</p>
-          <div *ngIf="!c.image_uris">
-            <p>Image not found</p>
-          </div>
-          <!-- <a href="{{ c.purchase_uris.tcgplayer }}">tcgplayer {{ c.prices.usd | currency }}</a> -->
-        </div>
-      </div>
-    </ng-container>
-    <ng-template #notFound>
-      <h2>Your Spell Fizzles</h2>
-    </ng-template>
-  </div>
+<div class="cardlist">
 
+  <ng-container *ngIf="cardmodel.data else notFound">
+    <div *ngFor="let c of cardmodel.data; index as i" class="cardcontainer">
+      <div class="card">
+
+        <div *ngIf="c.image_uris else doubleSided" class="img-container">
+          <img src="{{ c.image_uris.border_crop }}" alt="" />
+        </div>  
+        
+        <ng-template #doubleSided class="img-container">
+          <!-- <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{c.card_faces[0].image_uris.border_crop}}" alt="">
+              </div>
+              <div class="flip-card-back">
+                <img src="{{c.card_faces[1].image_uris.border_crop}}" alt="">
+              </div>
+            </div>
+          </div>  -->
+          <img src="{{c.card_faces[0].image_uris.border_crop}}" alt="">
+        </ng-template>
+
+
+        <p>{{ c.name }}</p>
+      </div>
+    </div>
+  </ng-container>
+
+
+
+
+  <ng-template #notFound>
+    <h2>Your Spell Fizzles</h2>
+  </ng-template>
+
+
+</div>
+
+          <!-- <a href="{{ c.purchase_uris.tcgplayer }}">tcgplayer {{ c.prices.usd | currency }}</a> -->

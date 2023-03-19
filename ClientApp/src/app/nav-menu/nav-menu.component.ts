@@ -16,29 +16,15 @@ export class NavMenuComponent {
   ispaper:boolean[]= [];
 
   ngOnInit():void{
-    this.getCardExact();
-
   }
 
   onSubmit():void{
-    this.ngOnInit();
+    //jank refresh 
     this.router.navigateByUrl("/", {skipLocationChange:true}).then(() => {
-      this.router.navigateByUrl(`/search/${this.cardName}`);
+      this.router.navigate([`/search/${this.cardName}`]);
     })
   }
 
-  getCardExact():void{
-    console.log(this.cardName);
-    this.CardsearchService.getCardExact(this.cardName).subscribe((response:CardModel)=>{
-      console.log(response);
-      this.ispaper = new Array(response.data.length);
-      for (let i:number = 0; i<response.data.length; i++){
-        this.ispaper[i]=response.data[i].games.indexOf('paper') >-1;
-      }
-      this.cardmodel= response;
-      
-    })
-}
   isExpanded = false;
 
   collapse() {

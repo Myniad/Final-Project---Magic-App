@@ -9,7 +9,7 @@ namespace Final_Project___Magic_App.Models
 
         {
             //Setup
-            string url = $"https://api.scryfall.com/cards/search?q={cardName}";
+            string url = $"https://api.scryfall.com/cards/search?q={cardName}+(game%3Apaper)";
 
 
             //request
@@ -19,9 +19,12 @@ namespace Final_Project___Magic_App.Models
             //Convert it to JSON
             StreamReader reader = new StreamReader(response.GetResponseStream());
             string JSON = reader.ReadToEnd();
-
+            Console.WriteLine(JSON);
+            Console.WriteLine();
+            Console.WriteLine();
             //Convert to c#
             CardModel result = JsonConvert.DeserializeObject<CardModel>(JSON);
+            Console.WriteLine(result);
             return result;
         }
         
