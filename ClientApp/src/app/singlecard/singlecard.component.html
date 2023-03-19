@@ -1,6 +1,44 @@
 
+<!-- 
+<p>{{cardmodel.data[0].name}}</p>
+<h3>Card title: PUT CARD NAME HERE (CMC FOR NOW)</h3>
+<p>Type: CARD TYPE HERE</p>
+<p>ORACLE TEXT HERE</p>
+<p>IF FLAVOR TEXT</p>
+<p>ARTIST</p>
+<p>RARITY</p>
+<p>MARKETPLACE</p>
+<p>MARKETPLACE 2*</p>
+<p>MARKETPLACE 3*</p>
+<p>IF POWER/TOUGHNESS</p>
 
-<h1>Card title</h1>
 <img src="" alt="this is a card image">
-<p>description</p>
+ -->
 
+ <div class="card-details-page">
+    <div class="card-details-img">
+        <img src="{{cardmodel.data[0].image_uris.border_crop}}" alt="this is a card image">
+    </div>
+
+    <div class="card-details">
+        <h1>{{cardmodel.data[0].name}}</h1>
+        <p>{{cardmodel.data[0].type_line}}</p>
+        <p class="rarity">{{cardmodel.data[0].rarity}}</p>
+        <p>
+            {{cardmodel.data[0].oracle_text}}
+        </p>
+        <p class="ital">{{cardmodel.data[0].flavor_text}}</p>
+        <p>Illustrated by {{cardmodel.data[0].artist}}</p>
+        <div class="buy-card">
+            <a href="{{cardmodel.data[0].purchase_uris.tcgplayer}}">
+                <p class="underline">TCGPlayer</p>
+            </a>
+            <a href="{{cardmodel.data[0].purchase_uris.cardmarket}}">
+                <p class="underline">Cardmarket</p>
+            </a>
+            <a href="{{cardmodel.data[0].purchase_uris.cardhoarder}}">
+                <p class="underline">Cardhoarder</p>
+            </a>
+        </div>
+    </div>
+</div>

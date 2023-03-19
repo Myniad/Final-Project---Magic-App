@@ -1,0 +1,81 @@
+.card-details-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--primary-light);
+    padding: 25px;
+    width: 100%;
+    height: 90%;
+    gap: 40px;
+}
+
+.card-details-img {
+    height: 100%;
+    width: auto;
+    background-color: var(--primary-dark);
+    border-radius: 20px;
+}
+
+.card-details-img img {
+    height: 100%;
+    width: auto;
+    border-radius: 20px;
+}
+
+.card-details {
+    background-color: var(--primary-dark);
+    max-width: 50%;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.card-details h1 {
+    border-bottom: 1px solid var(--primary-light);
+    padding: 20px 0px;
+    padding-top: 0px;
+    color: var(--accent);
+}
+
+.card-details  {
+    padding: 20px;
+}
+
+.card-details p {
+    font-size: 1.5rem;
+}
+.rarity{
+    text-transform: capitalize;
+}
+
+.ital {
+    font-style: italic;
+}
+
+.underline {
+    background-color: var(--accent);
+    max-width: max-content;
+    border-radius: 5px;
+    color: var(--dark);
+    border: 2px solid var(--dark);
+    transition: background-color 1s;
+    padding: 10px;
+}
+
+.underline:hover{
+    background-color: var(--highlight);
+}
+
+.buy-card {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+    gap: 5px;
+}
+
+/* 
+@media screen and (max-width:1100px) {
+    .card-details-page{
+        flex-direction: column;
+    }
+} */

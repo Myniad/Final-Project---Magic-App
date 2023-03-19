@@ -71,6 +71,9 @@ namespace Final_Project___Magic_App.Models
         public Prices prices { get; set; }
         public Related_Uris related_uris { get; set; }
         public Purchase_Uris purchase_uris { get; set; }
+        public string power { get; set; }
+        public string toughness { get; set; }
+        public string flavor_text { get; set; }
     }
 
     public class Image_Uris

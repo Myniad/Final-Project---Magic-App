@@ -16,6 +16,12 @@ export interface Datum {
     games:string[];
     card_back_id:string;
     card_faces:Card_Face[];
+    power:string;
+    toughness:string;
+    artist:string;
+    flavor_text:string;
+    
+
 }
 
 export interface Image_Uris{
@@ -29,10 +35,13 @@ export interface Image_Uris{
 
 export interface Purchase_Uris{
     tcgplayer:string;
+    cardmarket:string;
+    cardhoarder:string;
 }
 
 export interface Prices{
     usd:string;
+
 }
 
 export interface Card_Face{
@@ -46,6 +55,7 @@ export interface Card_Face{
     oracle_text:string;
     normal:string;
     image_uris: Image_Uris;
+    artist:string;
 }
 
 export interface Card_Faces{
