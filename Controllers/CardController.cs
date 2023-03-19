@@ -22,8 +22,15 @@ namespace Final_Project___Magic_App.Controllers
         [HttpGet("SearchExact")]
         public CardModel searchExact(string cardName)
         {
-            //example request https://api.scryfall.com/cards/search?q=${cardName}
-            return CardDAL.GetExactCard(cardName);
+            try
+            {
+                return CardDAL.GetExactCard(cardName);
+            }
+            
+            catch(Exception)
+            {
+                return new CardModel();
+            }
         }
 
         //searching for cards using a fuzzy search

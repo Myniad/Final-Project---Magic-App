@@ -40,7 +40,13 @@ nav {
 #logo {
   color: var(--accent);
   cursor: pointer;
-  font-family: 'Limelight', cursive;
+  font-family: 'Berkshire Swash', cursive;
+  transition: color 1s;
+}
+
+#logo:hover{
+  color: var(--highlight);
+
 }
 
 #searchbar {

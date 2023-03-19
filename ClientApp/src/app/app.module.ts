@@ -32,9 +32,10 @@ import { DeckComponent } from './Decks/deck/deck.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Card', component: CardcomponentComponent},
-      { path: 'SingleCard', component: SinglecardComponent},
       { path: 'Deck', component: DeckComponent},
       { path: 'search/:cardName', component: CardcomponentComponent},
+      { path: 'card/:cardName', component: SinglecardComponent},
+
 
     ])
   ],

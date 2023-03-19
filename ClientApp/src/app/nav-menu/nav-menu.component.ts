@@ -17,10 +17,14 @@ export class NavMenuComponent {
 
   ngOnInit():void{
     this.getCardExact();
+
   }
 
   onSubmit():void{
-    this.router.navigate([`/search/${this.cardName}`]);
+    this.ngOnInit();
+    this.router.navigateByUrl("/", {skipLocationChange:true}).then(() => {
+      this.router.navigateByUrl(`/search/${this.cardName}`);
+    })
   }
 
   getCardExact():void{
