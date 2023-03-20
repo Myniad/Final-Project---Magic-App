@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -12,6 +13,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardcomponentComponent } from './cardcomponent/cardcomponent.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { DeckComponent } from './Decks/deck/deck.component';
+import { Secret } from './secret';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { DeckComponent } from './Decks/deck/deck.component';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -39,7 +42,23 @@ import { DeckComponent } from './Decks/deck/deck.component';
 
     ])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              Secret.clientId
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

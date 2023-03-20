@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CardModel } from '../Models/CardModel';
 import { Datum } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-nav-menu',
@@ -12,14 +13,40 @@ import { CardsearchService } from '../Services/cardsearch.service';
 export class NavMenuComponent {
   cardName:string = "";
   cardmodel:CardModel = {} as CardModel;
-  constructor(private CardsearchService:CardsearchService, private router:Router){}
+  constructor(private CardsearchService:CardsearchService, private router:Router, private authService: SocialAuthService){}
   ispaper:boolean[]= [];
+  user:SocialUser = {} as SocialUser;
+  loggedIn: boolean = false;
 
   ngOnInit():void{
+    // this.signInWithGoogle;
+    this.authService.authState.subscribe((user)=>{
+      this.user=user;
+      this.loggedIn=(user !=null);
+      console.log(this.user);
+  });
+}
+
+
+  // signInWithGoogle(): void {
+  //   this.authService.authState.subscribe((user)=>{
+  //     this.user=user;
+  //     this.loggedIn=(user !=null);
+  //     console.log(this.user);
+  //   })
+  //   }
+
+  signOut():void{
+    this.authService.signOut();
+    this.loggedIn=false;
   }
 
+
+
+
+
   onSubmit():void{
-    //jank refresh 
+    //jank refresh
     this.router.navigateByUrl("/", {skipLocationChange:true}).then(() => {
       this.router.navigate([`/search/${this.cardName}`]);
     })

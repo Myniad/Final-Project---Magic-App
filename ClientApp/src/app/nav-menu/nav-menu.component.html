@@ -1,14 +1,68 @@
 <nav>
   <div id="nav-left">
-      <h1><a routerLink="/" id="logo">Counterspell</a></h1>
-      <form id="searchbar" (ngSubmit)="onSubmit()">
-          <input type="search" placeholder="Target player searches their library for..." [(ngModel)]="cardName" name="cardName"/>
-          <button><span class="material-symbols-outlined">search</span></button>
-      </form>
+    <h1><a routerLink="/" id="logo">Counterspell</a></h1>
+    <form id="searchbar" (ngSubmit)="onSubmit()">
+      <input
+        type="search"
+        placeholder="Target player searches their library for..."
+        [(ngModel)]="cardName"
+        name="cardName"
+      />
+      <button><span class="material-symbols-outlined">search</span></button>
+    </form>
   </div>
 
-  <div id="nav-right">
+  <!-- <div id="nav-right">
       <a href="#">Login</a>
       <a href="#">Register</a>
-  </div>
-</nav>
+  </div> -->
+
+
+  <div class="container" id="nav-right">
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target=".navbar-collapse"
+      aria-label="Toggle navigation"
+      [attr.aria-expanded]="isExpanded"
+      (click)="toggle()"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+      [ngClass]="{ show: isExpanded }"
+    >
+      <ul class="navbar-nav flex-grow">
+
+
+
+        <li class="nav-item">
+          <asl-google-signin-button
+            *ngIf="!loggedIn"
+            type="icon"
+            size="medium"
+          ></asl-google-signin-button>
+
+          <button
+            class="btn btn-outline-dark"
+            *ngIf="loggedIn"
+            (click)="signOut()"
+          >
+            Sign Out
+          </button>
+        </li>
+
+        <div *ngIf="loggedIn">
+          <p>{{ user.name }}</p>
+          <img src="{{ user.photoUrl }}" />
+        </div>
+
+
+      </ul>
+    </div>
+
+
+
