@@ -23,7 +23,7 @@ export class NavMenuComponent {
     this.authService.authState.subscribe((user)=>{
       this.user=user;
       this.loggedIn=(user !=null);
-      console.log(this.user);
+      // console.log(this.user);
   });
 }
 
