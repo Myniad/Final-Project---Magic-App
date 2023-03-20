@@ -14,6 +14,7 @@ import { CardcomponentComponent } from './cardcomponent/cardcomponent.component'
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { DeckComponent } from './Decks/deck/deck.component';
 import { Secret } from './secret';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -23,12 +24,14 @@ import { Secret } from './secret';
     CounterComponent,
     FetchDataComponent,
     CardcomponentComponent,
-    DeckComponent
+    DeckComponent,
+    SinglecardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule,
+    CommonModule,
     SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },

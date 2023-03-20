@@ -21,17 +21,23 @@
     /> -->
     <div
     class="card-details-img"
-    *ngIf="cardmodel.data[0].image_uris; else doubleSided"
-  >
 
-    <img
+  >
+  <!-- *ngIf="cardmodel.data[0].image_uris; else doubleSided" -->
+    <!-- <img
       src="{{ cardmodel.data[0].image_uris.border_crop }}"
       alt="this is a card image"
-    />
+    /> -->
   </div>
   <div class="card-details-img" #doubleSided>
     <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
   </div>
+
+
+  <div class="card-details-img" #doubleSided *ngIf="cardmodel.data[0].card_faces[1].image_uris!=null">
+    <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
+  </div>
+
 <!-- </div> -->
 
   <!-- <div *ngIf="cardmodel.data[0].card_faces.length >= 2">
@@ -61,7 +67,7 @@
     <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
     <div class="buy-card">
       <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
-        <p class="underline">TCGPlayer</p>
+        <p class="underline">TCGPlayer {{ConvertStringToNumber(cardmodel.data[0].prices.usd )| currency:'USD'}}</p>
       </a>
       <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
         <p class="underline">Cardmarket</p>

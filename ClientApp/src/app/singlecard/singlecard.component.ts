@@ -26,6 +26,12 @@ export class SinglecardComponent {
   ngOnInit():void{
 
   }
+  ConvertStringToNumber(input: string) {
+    if (input.trim().length==0) {
+        return NaN;
+    }
+    return Number(input);
+}
 
   getCardExact():void{
     this.CardsearchService.getCardExact(this.cardName).subscribe((response:CardModel)=>{
