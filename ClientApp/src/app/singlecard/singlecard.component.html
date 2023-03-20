@@ -1,5 +1,5 @@
 
-<!-- 
+<!--
 <p>{{cardmodel.data[0].name}}</p>
 <h3>Card title: PUT CARD NAME HERE (CMC FOR NOW)</h3>
 <p>Type: CARD TYPE HERE</p>
@@ -16,10 +16,12 @@
  -->
 
  <div class="card-details-page">
-    <div class="card-details-img">
+    <div class="card-details-img" *ngIf="cardmodel.data[0].image_uris else:doubleSided" >
         <img src="{{cardmodel.data[0].image_uris.border_crop}}" alt="this is a card image">
     </div>
-
+    <div class="card-details-img" #doubleSided>
+        <img src="{{cardmodel.data[0].card_faces[0].image_uris.border_crop}}">
+    </div>
     <div class="card-details">
         <h1>{{cardmodel.data[0].name}}</h1>
         <p>{{cardmodel.data[0].type_line}}</p>
@@ -27,7 +29,13 @@
         <p>
             {{cardmodel.data[0].oracle_text}}
         </p>
+        <p #doubleSided>
+          {{cardmodel.data[0].card_faces[0].oracle_text}}
+      </p>
         <p class="ital">{{cardmodel.data[0].flavor_text}}</p>
+        <!-- <p *ngIf="cardmodel.data[0].power != null">
+          {{cardmodel.data[0].power}}/{{cardmodel.data[0].toughness}}
+        </p> -->
         <p>Illustrated by {{cardmodel.data[0].artist}}</p>
         <div class="buy-card">
             <a href="{{cardmodel.data[0].purchase_uris.tcgplayer}}">
