@@ -66,9 +66,10 @@
         </p> -->
     <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
     <div class="buy-card">
-      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
-        <p class="underline">TCGPlayer {{ConvertStringToNumber(cardmodel.data[0].prices.usd )| currency:'USD'}}</p>
+      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer}}">
+        <p class="underline">TCGPlayer </p>
       </a>
+      <!-- {{ConvertStringToNumber(cardmodel.data[0].prices.usd )| currency:'USD'}} -->
       <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
         <p class="underline">Cardmarket</p>
       </a>
