@@ -12,12 +12,12 @@ export class DeckService {
   constructor(@Inject('BASE_URL') private baseUrl: string, private http: HttpClient,) { }
 
   CreateDeck(newDeck:string,Uid:string):Observable<DeckTable>{
-    return this.http.post<DeckTable>(`${this.baseUrl}api/Deck?deckName=${newDeck}&user=${Uid}`,{})
+    return this.http.post<DeckTable>(`${this.baseUrl}api/Deck/CreateDeck?deckName=${newDeck}&user=${Uid}`,{})
   }
 
-  // GetDeckByName(userId:string, deckName:string):Observable<DeckTable>{
-  //   return this.http.get<DeckTable>()`${this.baseUrl}api/Deck/GetDeckByName?UId=${userId}&DeckName=${deckName}`);
-  // }
+  GetDeckByName(userId:string, deckName:string):Observable<DeckTable>{
+    return this.http.get<DeckTable>(`${this.baseUrl}api/Deck/GetDeckByName?UId=${userId}&DeckName=${deckName}`);
+  }
 
   GetDecks():Observable <DeckTable[]>{
     return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetDecks`)

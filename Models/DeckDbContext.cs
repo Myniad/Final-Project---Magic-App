@@ -21,13 +21,13 @@ public partial class DeckDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=.\\sqlexpress;Initial Catalog=DeckDB; Integrated Security=SSPI;Encrypt=false;TrustServerCertificate=True;");
+        => optionsBuilder.UseSqlServer("Data Source= counterspell.database.windows.net;Initial Catalog=DeckDB; User Id= jkim5929; Password= Zoom1006");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<CardTable>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CardTabl__3214EC275A426B28");
+            entity.HasKey(e => e.Id).HasName("PK__CardTabl__3214EC27752A9E36");
 
             entity.ToTable("CardTable");
 
@@ -42,7 +42,7 @@ public partial class DeckDbContext : DbContext
 
         modelBuilder.Entity<DeckTable>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__DeckTabl__3214EC27444549AB");
+            entity.HasKey(e => e.Id).HasName("PK__DeckTabl__3214EC27D0C14E5D");
 
             entity.ToTable("DeckTable");
 

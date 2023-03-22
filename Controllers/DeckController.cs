@@ -11,7 +11,7 @@ namespace Final_Project___Magic_App.Controllers
         DeckDbContext dbcontext = new DeckDbContext();
 
         //method to add deck
-        [HttpGet("CreateDeck")]
+        [HttpPost("CreateDeck")]
         public DeckTable createDeck(string deckName, string user)
         {
             DeckTable newDeck = new DeckTable()
