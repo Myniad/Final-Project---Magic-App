@@ -4,6 +4,10 @@ import { Observable } from 'rxjs';
 import { CardModel } from '../Models/CardModel';
 import { Card_Face } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import { DeckTable } from '../Models/deck-table';
+import { DeckService } from '../Services/deck.service';
+
 
 @Component({
   selector: 'app-singlecard',
@@ -14,8 +18,12 @@ export class SinglecardComponent {
   public cardName:string = "";
   public isCreature:boolean = false;
   cardmodel:CardModel = {} as CardModel;
+  user:SocialUser = {} as SocialUser;
+  loggedIn: boolean = false;
+  Deck:DeckTable[] = [];
+  currentDeckId:number = 0;
 
-  constructor(private CardsearchService:CardsearchService, private route:ActivatedRoute, private router:Router){
+  constructor(private CardsearchService:CardsearchService, private route:ActivatedRoute, private router:Router, private authService: SocialAuthService, private deckService: DeckService){
     // router.events.subscribe(() => {
       this.cardName = this.route.snapshot.paramMap.get('cardName') || "";
       this.getCardExact();
@@ -24,8 +32,25 @@ export class SinglecardComponent {
   }
 
   ngOnInit():void{
+    this.authService.authState.subscribe((user)=>{
+      this.user=user;
+      this.loggedIn=(user !=null);
+      this.GetUserDecks();
+  })}
 
+
+  GetUserDecks(){
+    this.deckService.GetUserDecks(this.user.id).subscribe((response: DeckTable[])=>{
+    console.log(response);
+    this.Deck = response;
+    })
   }
+
+  AddCardToDeck(deckId:number, cardId:string){
+    console.log(deckId, cardId);
+  }
+
+
   ConvertStringToNumber(input: string) {
     if (input.trim().length==0) {
         return NaN;

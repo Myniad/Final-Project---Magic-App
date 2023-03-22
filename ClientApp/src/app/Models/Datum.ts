@@ -20,6 +20,7 @@ export interface Datum {
     toughness:string;
     artist:string;
     flavor_text:string;
+    id:string;
     
 
 }

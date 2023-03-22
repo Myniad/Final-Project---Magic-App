@@ -19,11 +19,8 @@
       src="{{ cardmodel.data[0].image_uris.border_crop }}"
       alt="this is a card image"
     /> -->
-    <div
-    class="card-details-img"
-
-  >
-  <!-- *ngIf="cardmodel.data[0].image_uris; else doubleSided" -->
+  <div class="card-details-img">
+    <!-- *ngIf="cardmodel.data[0].image_uris; else doubleSided" -->
     <!-- <img
       src="{{ cardmodel.data[0].image_uris.border_crop }}"
       alt="this is a card image"
@@ -33,12 +30,23 @@
     <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
   </div>
 
-
-  <div class="card-details-img" #doubleSided *ngIf="cardmodel.data[0].card_faces[1].image_uris!=null">
+  <div
+    class="card-details-img"
+    #doubleSided
+    *ngIf="cardmodel.data[0].card_faces[1].image_uris != null"
+  >
     <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
   </div>
+  <div *ngIf="loggedIn">
+      <Select>
+        <ng-container *ngFor="let d of Deck">
+          <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
+        </ng-container >
+      </Select>
+    <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)" >Add to Deck</button>
+  </div>
 
-<!-- </div> -->
+  <!-- </div> -->
 
   <!-- <div *ngIf="cardmodel.data[0].card_faces.length >= 2">
     <p>doublesided</p>
@@ -66,8 +74,8 @@
         </p> -->
     <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
     <div class="buy-card">
-      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer}}">
-        <p class="underline">TCGPlayer </p>
+      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+        <p class="underline">TCGPlayer</p>
       </a>
       <!-- {{ConvertStringToNumber(cardmodel.data[0].prices.usd )| currency:'USD'}} -->
       <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">

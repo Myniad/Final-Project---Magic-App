@@ -23,6 +23,7 @@ export class DeckService {
     return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetDecks`)
   }
 
+  
 
   GetUserDecks(userId:string):Observable <DeckTable[]>{
     return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetAllDeckByUser?UID=${userId}`)
