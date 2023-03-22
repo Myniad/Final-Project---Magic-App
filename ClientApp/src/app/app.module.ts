@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 import { AlldecksComponent } from './alldecks/alldecks.component';
 import { DeckviewComponent } from './deckview/deckview.component';
 import { CreateDeckComponent } from './createdeck/createdeck.component';
+import { UserdecksComponent } from './userdecks/userdecks.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CreateDeckComponent } from './createdeck/createdeck.component';
     AlldecksComponent,
     DeckviewComponent,
     SinglecardComponent,
-    CreateDeckComponent
+    CreateDeckComponent,
+    UserdecksComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -46,7 +48,8 @@ import { CreateDeckComponent } from './createdeck/createdeck.component';
       { path: 'Decklist', component: AlldecksComponent},
       { path: 'search/:cardName', component: CardcomponentComponent},
       { path: 'card/:cardName', component: SinglecardComponent},
-      { path: 'CreateDeck', component: CreateDeckComponent}
+      { path: 'CreateDeck', component: CreateDeckComponent},
+      { path: 'userdecks', component: UserdecksComponent}
 
 
     ])
