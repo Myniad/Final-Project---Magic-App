@@ -39,11 +39,11 @@ namespace Final_Project___Magic_App.Controllers
             List<DeckTable> dList = new List<DeckTable>();
 
 
-            foreach(DeckTable d in dbcontext.DeckTables.Where(d=>d.Uid==UID).ToList())
-            {
-                dList.Add(dbcontext.DeckTables.FirstOrDefault(d => d.Uid == UID));
-            }
-            return dList;
+            //foreach(DeckTable d in )
+            //{
+            //    dList.Add();
+            //}
+            return dbcontext.DeckTables.Where(d => d.Uid == UID).ToList();
         }
 
 
