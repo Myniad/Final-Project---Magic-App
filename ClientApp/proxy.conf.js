@@ -7,7 +7,8 @@ const PROXY_CONFIG = [
   {
     context: [
 
-      "/api/Card"
+      "/api/Card",
+      "/api/Deck"
    ],
     target: target,
     secure: false,

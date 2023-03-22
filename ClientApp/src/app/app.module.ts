@@ -12,9 +12,11 @@ import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { CardcomponentComponent } from './cardcomponent/cardcomponent.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
-import { DeckComponent } from './Decks/deck/deck.component';
 import { Secret } from './secret';
 import { CommonModule } from '@angular/common';
+import { AlldecksComponent } from './alldecks/alldecks.component';
+import { DeckviewComponent } from './deckview/deckview.component';
+import { CreateDeckComponent } from './createdeck/createdeck.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,10 @@ import { CommonModule } from '@angular/common';
     CounterComponent,
     FetchDataComponent,
     CardcomponentComponent,
-    DeckComponent,
-    SinglecardComponent
+    AlldecksComponent,
+    DeckviewComponent,
+    SinglecardComponent,
+    CreateDeckComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -38,9 +42,11 @@ import { CommonModule } from '@angular/common';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Card', component: CardcomponentComponent},
-      { path: 'Deck', component: DeckComponent},
+      { path: 'Deckview', component: DeckviewComponent},
+      { path: 'Decklist', component: AlldecksComponent},
       { path: 'search/:cardName', component: CardcomponentComponent},
       { path: 'card/:cardName', component: SinglecardComponent},
+      { path: 'CreateDeck', component: CreateDeckComponent}
 
 
     ])

@@ -17,33 +17,7 @@ namespace Final_Project___Magic_App.Controllers
         {
             return new List<CardModel>();
         }
-
-        //method to add deck
-        //[HttpGet("CreateDeck")]
-        //public DeckTable createDeck(string deckName, CardTable cards, )
-        //{
-        //    DeckTable newDeck = new DeckTable()
-        //    {
-        //        DeckName = deckName,
-        //        Uid = userid
-        //    };
-        //    return dbcontext.DeckTables.FirstOrDefault(u => u.Uid == UID);
-        //    //&&(u=>u.DeckName == deckName))
-        //}
-
-        //method to get deck by id
-        [HttpGet("GetDeckByUser")]
-        public DeckTable searchDeckByID(string UID)
-        {
-            return dbcontext.DeckTables.FirstOrDefault(u => u.Uid == UID);
-            //&&(u=>u.DeckName == deckName))
-        }
-        //method to get all decks by userID (google)
-        [HttpGet("GetAllDeckByUser")]
-        public List<DeckTable> allDecksByID(string UID)
-        {
-            return dbcontext.DeckTables.Where(d => d.Uid == UID).ToList();
-        }
+ 
 
         //searching cards by the exact name note that this should be case insensitive
         [HttpGet("SearchExact")]
