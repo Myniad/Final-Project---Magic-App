@@ -27,6 +27,14 @@ export class DeckService {
   GetUserDecks(userId:string):Observable <DeckTable[]>{
     return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetAllDeckByUser?UID=${userId}`)
   }
+//added this must test when online
+  ChangeDeckName(ID:number,newName:string):Observable <DeckTable>{
+    return this.http.put<DeckTable>(`${this.baseUrl}api/Deck/ChangeDeckName?ID=${ID}&newName=${newName}`,{})
+  }
+
+  DeleteDeck(ID:number){
+    return this.http.delete<DeckTable>(`${this.baseUrl}api/Deck/DeleteDeck?ID=${ID}`)
+  }
 
 
 

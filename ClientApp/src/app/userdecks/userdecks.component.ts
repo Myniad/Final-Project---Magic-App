@@ -15,7 +15,9 @@ export class UserdecksComponent {
   user:SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   Deck: DeckTable[]=[];
+
   deckName:string = "";
+  newDeckName:string = "";
 
   ngOnInit():void{
     this.authService.authState.subscribe((user)=>{
@@ -32,8 +34,21 @@ GetUserDecks(){
   })
 }
 
+// added this needs testing 
+ChangeDeckName(id:number, newName: string){
+  this.deckService.ChangeDeckName(id,newName ).subscribe((response: DeckTable)=>{
+  console.log(response);
+  })
+}
 
-
+DeleteDeck(id:number):void{
+  this.deckService.DeleteDeck(id).subscribe(() => {
+    //takes back to homepage
+    //this.Deck.splice(id, 1)
+    this.router.navigateByUrl('/userdecks')
+  })
+}
 
 
 }
+

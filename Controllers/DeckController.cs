@@ -46,6 +46,25 @@ namespace Final_Project___Magic_App.Controllers
             return dbcontext.DeckTables.Where(d => d.Uid == UID).ToList();
         }
 
+        [HttpPut("ChangeDeckName")]
+        public string changeDeckName(int ID, string newName )
+        {
+
+            dbcontext.DeckTables.FirstOrDefault(d => d.Id == ID).DeckName = newName;
+            dbcontext.SaveChanges();
+            return $"Name successfully changed to {newName}";
+        }
+
+        [HttpDelete("DeleteDeck")]
+        public void deleteDeck(int ID)
+        {
+            DeckTable deleteDeck = dbcontext.DeckTables.FirstOrDefault(d => d.Id == ID);
+            dbcontext.Remove(deleteDeck);
+            dbcontext.SaveChanges();
+            Console.WriteLine("Successfully deleted deck");
+        }
+
+
 
         [HttpGet("GetDecks")]
         public List<DeckTable> GetDecks()
