@@ -9,6 +9,7 @@
   --highlight: #B084CC;
 }
 
+
 a {
   color: #0366d6;
 }
@@ -24,6 +25,7 @@ code {
 }
 
 * {
+  color: #8DA1B9;
   padding: 0;
   margin: 0;
   box-sizing: border-box;

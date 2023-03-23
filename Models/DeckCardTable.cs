@@ -10,4 +10,6 @@ public partial class DeckCardTable
     public string? DeckId { get; set; }
 
     public string? CardId { get; set; }
+
+    public string? CardName { get; set; }
 }

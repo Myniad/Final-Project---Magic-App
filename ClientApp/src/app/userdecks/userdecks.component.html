@@ -9,7 +9,9 @@
       <button (click)="ChangeDeckName(u.id, newDeckName)">Rename Deck</button>
       <br><br>
       <button (click)="DeleteDeck(u.id)">Delete Deck</button>
-
+      <button routerLink="/Deckview/{{u.id}}">
+          View Deck
+      </button>
     </div>
     <hr>
   </div>

@@ -37,12 +37,21 @@ export class DeckService {
     return this.http.delete<DeckTable>(`${this.baseUrl}api/Deck/DeleteDeck?ID=${ID}`)
   }
 
-  AddCardToDeck(cardId:string, deckId:string):Observable <DeckTable>{
-    return this.http.put<DeckTable>(`${this.baseUrl}api/Deck/AddCardToDeck?cardId=${cardId}&deckId=${deckId}`,{})
+  AddCardToDeck(cardId:string, deckId:number, cardName:string):Observable <DeckTable>{
+    return this.http.post<DeckTable>(`${this.baseUrl}api/Deck/AddCardToDeck?cardId=${cardId}&deckId=${deckId}&cardName=${cardName}`,{})
+  }
+
+  GetDeckById(ID:number):Observable<DeckTable>{
+    return this.http.get<DeckTable>(`${this.baseUrl}api/Deck/GetDeckById?ID=${ID}`,{})
+  }
+
+  GetCardsByDeckId(ID:string):Observable<CardTable[]>{
+    return this.http.get<CardTable[]>(`${this.baseUrl}api/Deck/GetCardsByDeckId?ID=${ID}`,{})
   }
 
 
-
-
+  DeleteCardFromDeck(ID:number){
+    return this.http.delete<CardTable>(`${this.baseUrl}api/Deck/DeleteCardFromDeck?ID=${ID}`)
+  }
 
 }

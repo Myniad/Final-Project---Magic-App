@@ -47,19 +47,19 @@
             </p>
           </div>
         </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
+          <a class="nav-link" [routerLink]="['/CreateDeck']"
+            ><p style="color: white;">Decks</p></a
+          >
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
+          <a class="nav-link" [routerLink]="['/userdecks']"
+            ><p style="color: white;">User Decks</p></a
+          >
+        </li>      
       </ul>
     </div>
   </div>
 
-  <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
-    <a class="nav-link" [routerLink]="['/CreateDeck']"
-      ><p style="color: white;">Decks</p></a
-    >
-  </li>
-  <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
-    <a class="nav-link" [routerLink]="['/userdecks']"
-      ><p style="color: white;">User Decks</p></a
-    >
-  </li>
 
 </nav>

@@ -44,12 +44,12 @@ import { UserdecksComponent } from './userdecks/userdecks.component';
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'Card', component: CardcomponentComponent},
-      { path: 'Deckview', component: DeckviewComponent},
+      { path: 'Deckview/:ID', component: DeckviewComponent},
       { path: 'Decklist', component: AlldecksComponent},
       { path: 'search/:cardName', component: CardcomponentComponent},
       { path: 'card/:cardName', component: SinglecardComponent},
       { path: 'CreateDeck', component: CreateDeckComponent},
-      { path: 'userdecks', component: UserdecksComponent}
+      { path: 'userdecks', component: UserdecksComponent},
 
 
     ])

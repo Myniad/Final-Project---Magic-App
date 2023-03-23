@@ -65,12 +65,24 @@ namespace Final_Project___Magic_App.Controllers
             
         }
 
-        [HttpPut("AddCardToDeck")]
-        public void addCardToDeck(string cardId, int deckId)
+        [HttpDelete("DeleteCardFromDeck")]
+        public void deleteCardFromDeck(int ID)
+        {
+            DeckCardTable deleteCard = dbcontext.DeckCardTables.FirstOrDefault(d => d.Id == ID);
+            dbcontext.DeckCardTables.Remove(deleteCard);
+            dbcontext.SaveChanges();
+            Console.WriteLine("Successfully deleted card");
+
+        }
+
+
+        [HttpPost("AddCardToDeck")]
+        public void addCardToDeck(string cardId, int deckId, string cardName)
         {
             DeckCardTable addCard = new DeckCardTable()
             {
                 CardId = cardId,
+                CardName = cardName,
                 DeckId = deckId.ToString()
             };
             dbcontext.DeckCardTables.Add(addCard);
@@ -83,8 +95,18 @@ namespace Final_Project___Magic_App.Controllers
             return dbcontext.DeckTables.ToList();
         }
 
+        [HttpGet("GetDeckById")]
+        public DeckTable searchDeckById(int ID)
+        {
+            return dbcontext.DeckTables.FirstOrDefault(u => u.Id == ID);
+            //&&(u=>u.DeckName == deckName))
+        }
 
-
+        [HttpGet("GetCardsByDeckId")]
+        public List<DeckCardTable> getCardsByDeckId(string ID)
+        {
+            return dbcontext.DeckCardTables.Where(u => u.DeckId == ID).ToList();
+        }
 
 
     }

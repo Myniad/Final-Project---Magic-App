@@ -50,6 +50,7 @@ public partial class DeckDbContext : DbContext
             entity.Property(e => e.CardId)
                 .HasMaxLength(255)
                 .HasColumnName("CardID");
+            entity.Property(e => e.CardName).HasMaxLength(255);
             entity.Property(e => e.DeckId)
                 .HasMaxLength(255)
                 .HasColumnName("DeckID");
