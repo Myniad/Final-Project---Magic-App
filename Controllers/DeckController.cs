@@ -62,6 +62,7 @@ namespace Final_Project___Magic_App.Controllers
             dbcontext.Remove(deleteDeck);
             dbcontext.SaveChanges();
             Console.WriteLine("Successfully deleted deck");
+            
         }
 
 

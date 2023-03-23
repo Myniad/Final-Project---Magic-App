@@ -15,7 +15,7 @@ export class UserdecksComponent {
   user:SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   Deck: DeckTable[]=[];
-
+  selectedIndex: number = -1;
   deckName:string = "";
   newDeckName:string = "";
 
@@ -34,19 +34,30 @@ GetUserDecks(){
   })
 }
 
-// added this needs testing 
+// added this needs testing
 ChangeDeckName(id:number, newName: string){
   this.deckService.ChangeDeckName(id,newName ).subscribe((response: DeckTable)=>{
-  console.log(response);
+    console.log(Response);
   })
 }
 
 DeleteDeck(id:number):void{
-  this.deckService.DeleteDeck(id).subscribe(() => {
+  let index:number = this.Deck.findIndex((d)=> d.id == id);
+  this.Deck.splice(index, 1);
+  this.deckService.DeleteDeck(id).subscribe((response:any) => {
+    console.log(Response);
+    this.Deck.splice(id, 1)
     //takes back to homepage
-    //this.Deck.splice(id, 1)
     this.router.navigateByUrl('/userdecks')
   })
+}
+
+select(index: number) {
+  this.selectedIndex = index;
+}
+
+unselect(index: number) {
+  this.selectedIndex = -1;
 }
 
 

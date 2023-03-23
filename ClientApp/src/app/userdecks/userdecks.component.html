@@ -1,14 +1,21 @@
 <div *ngIf="Deck.length > 0">
   <div *ngFor="let u of Deck; index as i" style="color: #8da1b9" class="row">
-    <p>
-      {{ i + 1 }}.Deckname: {{ u.deckName }}
-    </p>
-    <label for="newDeckName">Edit Deck Name:</label>
-    <input type="text" [(ngModel)]="newDeckName"/>
-    <button (click)="ChangeDeckName(u.id, newDeckName)">Rename Deck</button>
-    <button (click)="DeleteDeck(u.id)">Delete Deck</button>
+    <p class="" (click)="select(i)">Deck {{ i + 1 }} - {{ u.deckName }}</p>
+      <div *ngIf="i==selectedIndex">
+      <button (click)="unselect(i)">Close</button>
+      <br>
+      <label for="newDeckName">Edit Deck Name:</label>
+      <input type="text" [(ngModel)]="newDeckName" />
+      <button (click)="ChangeDeckName(u.id, newDeckName)">Rename Deck</button>
+      <br><br>
+      <button (click)="DeleteDeck(u.id)">Delete Deck</button>
+
+    </div>
+    <hr>
   </div>
 </div>
+
+
 
 <!-- <label for="deckName">Deck Name:</label>
 <input type="text" [(ngModel)]="newDeck"/>
