@@ -37,7 +37,9 @@ export class DeckService {
     return this.http.delete<DeckTable>(`${this.baseUrl}api/Deck/DeleteDeck?ID=${ID}`)
   }
 
-
+  AddCardToDeck(cardId:string, deckId:string):Observable <DeckTable>{
+    return this.http.put<DeckTable>(`${this.baseUrl}api/Deck/AddCardToDeck?cardId=${cardId}&deckId=${deckId}`,{})
+  }
 
 
 

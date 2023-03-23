@@ -17,6 +17,8 @@ public partial class DeckDbContext : DbContext
 
     public virtual DbSet<CardTable> CardTables { get; set; }
 
+    public virtual DbSet<DeckCardTable> DeckCardTables { get; set; }
+
     public virtual DbSet<DeckTable> DeckTables { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -27,9 +29,22 @@ public partial class DeckDbContext : DbContext
     {
         modelBuilder.Entity<CardTable>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__CardTabl__3214EC27752A9E36");
+            entity.HasKey(e => e.Id).HasName("PK__CardTabl__3214EC27A5C7E919");
 
             entity.ToTable("CardTable");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.ImageUrl).HasColumnName("Image_URL");
+            entity.Property(e => e.Name).HasMaxLength(255);
+            entity.Property(e => e.ScryfallId).HasColumnName("Scryfall_ID");
+            entity.Property(e => e.TypeLine).HasColumnName("Type_Line");
+        });
+
+        modelBuilder.Entity<DeckCardTable>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__CardTabl__3214EC27752A9E36");
+
+            entity.ToTable("DeckCardTable");
 
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.CardId)

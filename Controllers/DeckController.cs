@@ -65,7 +65,17 @@ namespace Final_Project___Magic_App.Controllers
             
         }
 
-
+        [HttpPut("AddCardToDeck")]
+        public void addCardToDeck(string cardId, int deckId)
+        {
+            DeckCardTable addCard = new DeckCardTable()
+            {
+                CardId = cardId,
+                DeckId = deckId.ToString()
+            };
+            dbcontext.DeckCardTables.Add(addCard);
+            dbcontext.SaveChanges();
+        }
 
         [HttpGet("GetDecks")]
         public List<DeckTable> GetDecks()

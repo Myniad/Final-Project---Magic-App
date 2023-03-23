@@ -36,6 +36,8 @@ GetUserDecks(){
 
 // added this needs testing
 ChangeDeckName(id:number, newName: string){
+  let index = this.Deck.findIndex(d=> d.id == id);
+  this.Deck[index].deckName = newName;
   this.deckService.ChangeDeckName(id,newName ).subscribe((response: DeckTable)=>{
     console.log(Response);
   })
