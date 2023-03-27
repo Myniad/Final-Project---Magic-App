@@ -1,6 +1,7 @@
 ﻿using Final_Project___Magic_App.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace Final_Project___Magic_App.Controllers
 {
@@ -36,14 +37,25 @@ namespace Final_Project___Magic_App.Controllers
         [HttpGet("GetAllDeckByUser")]
         public List<DeckTable> allDecksByID(string UID)
         {
-            List<DeckTable> dList = new List<DeckTable>();
+            try
+            {
+                List < DeckTable > dList = new List<DeckTable>();
+                return dbcontext.DeckTables.Where(d => d.Uid == UID).ToList();
+            }
+
+            catch (Exception)
+            {
+                List<DeckTable> dList = new List<DeckTable>();
+                return dList;
+            }
+            
 
 
             //foreach(DeckTable d in )
             //{
             //    dList.Add();
             //}
-            return dbcontext.DeckTables.Where(d => d.Uid == UID).ToList();
+            
         }
 
         [HttpPut("ChangeDeckName")]
