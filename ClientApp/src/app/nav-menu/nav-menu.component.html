@@ -23,6 +23,7 @@
       [ngClass]="{ show: isExpanded }"
     >
       <ul class="navbar-nav flex-grow">
+
         <li class="nav-item">
           <asl-google-signin-button
             *ngIf="!loggedIn"
@@ -49,14 +50,19 @@
         </li>
         <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
           <a class="nav-link" [routerLink]="['/CreateDeck']"
-            ><p style="color: white;">Decks</p></a
+            ><p style="color: white;">Deck Creation</p></a
           >
         </li>
         <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="loggedIn">
           <a class="nav-link" [routerLink]="['/userdecks']"
             ><p style="color: white;">User Decks</p></a
           >
-        </li>      
+        </li>
+<li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link" [routerLink]="['/Glossary']"
+            ><p style="color: white;">Search Glossary</p></a
+          >
+        </li>
       </ul>
     </div>
   </div>

@@ -56,7 +56,7 @@ export class SinglecardComponent {
   }
 
   AddCardToDeck(deckId: number, cardId: string) {
-    console.log(deckId, cardId);
+    console.log(deckId, cardId, this.cardName);
     this.deckService
       .AddCardToDeck(cardId, deckId, this.cardName)
       .subscribe((response: any) => {

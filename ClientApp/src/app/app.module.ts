@@ -8,8 +8,7 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+
 import { CardcomponentComponent } from './cardcomponent/cardcomponent.component';
 import { SinglecardComponent } from './singlecard/singlecard.component';
 import { Secret } from './secret';
@@ -18,14 +17,14 @@ import { AlldecksComponent } from './alldecks/alldecks.component';
 import { DeckviewComponent } from './deckview/deckview.component';
 import { CreateDeckComponent } from './createdeck/createdeck.component';
 import { UserdecksComponent } from './userdecks/userdecks.component';
+import { GlossaryComponent } from './glossary/glossary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
+
     CardcomponentComponent,
     AlldecksComponent,
     DeckviewComponent,
@@ -41,8 +40,7 @@ import { UserdecksComponent } from './userdecks/userdecks.component';
     SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
+
       { path: 'Card', component: CardcomponentComponent},
       { path: 'Deckview/:ID', component: DeckviewComponent},
       { path: 'Decklist', component: AlldecksComponent},
@@ -50,6 +48,7 @@ import { UserdecksComponent } from './userdecks/userdecks.component';
       { path: 'card/:cardName', component: SinglecardComponent},
       { path: 'CreateDeck', component: CreateDeckComponent},
       { path: 'userdecks', component: UserdecksComponent},
+      { path: 'Glossary', component:GlossaryComponent}
 
 
     ])

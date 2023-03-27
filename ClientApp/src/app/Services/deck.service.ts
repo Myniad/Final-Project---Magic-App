@@ -5,53 +5,81 @@ import { DeckTable } from '../Models/deck-table';
 import { CardTable } from '../Models/card-table';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DeckService {
+  constructor(
+    @Inject('BASE_URL') private baseUrl: string,
+    private http: HttpClient
+  ) {}
 
-  constructor(@Inject('BASE_URL') private baseUrl: string, private http: HttpClient,) { }
-
-  CreateDeck(newDeck:string,Uid:string):Observable<DeckTable>{
-    return this.http.post<DeckTable>(`${this.baseUrl}api/Deck/CreateDeck?deckName=${newDeck}&user=${Uid}`,{})
+  CreateDeck(newDeck: string, Uid: string): Observable<DeckTable> {
+    return this.http.post<DeckTable>(
+      `${this.baseUrl}api/Deck/CreateDeck?deckName=${newDeck}&user=${Uid}`,
+      {}
+    );
   }
 
-  GetDeckByName(userId:string, deckName:string):Observable<DeckTable>{
-    return this.http.get<DeckTable>(`${this.baseUrl}api/Deck/GetDeckByName?UId=${userId}&DeckName=${deckName}`);
+  GetDeckByName(userId: string, deckName: string): Observable<DeckTable> {
+    return this.http.get<DeckTable>(
+      `${this.baseUrl}api/Deck/GetDeckByName?UId=${userId}&DeckName=${deckName}`
+    );
   }
 
-  GetDecks():Observable <DeckTable[]>{
-    return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetDecks`)
+  GetDecks(): Observable<DeckTable[]> {
+    return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetDecks`);
   }
 
-  
-
-  GetUserDecks(userId:string):Observable <DeckTable[]>{
-    return this.http.get<DeckTable[]>(`${this.baseUrl}api/Deck/GetAllDeckByUser?UID=${userId}`)
+  GetUserDecks(userId: string): Observable<DeckTable[]> {
+    return this.http.get<DeckTable[]>(
+      `${this.baseUrl}api/Deck/GetAllDeckByUser?UID=${userId}`
+    );
   }
-//added this must test when online
-  ChangeDeckName(ID:number,newName:string):Observable <DeckTable>{
-    return this.http.put<DeckTable>(`${this.baseUrl}api/Deck/ChangeDeckName?ID=${ID}&newName=${newName}`,{})
-  }
-
-  DeleteDeck(ID:number){
-    return this.http.delete<DeckTable>(`${this.baseUrl}api/Deck/DeleteDeck?ID=${ID}`)
-  }
-
-  AddCardToDeck(cardId:string, deckId:number, cardName:string):Observable <DeckTable>{
-    return this.http.post<DeckTable>(`${this.baseUrl}api/Deck/AddCardToDeck?cardId=${cardId}&deckId=${deckId}&cardName=${cardName}`,{})
+  //added this must test when online
+  ChangeDeckName(ID: number, newName: string): Observable<DeckTable> {
+    return this.http.put<DeckTable>(
+      `${this.baseUrl}api/Deck/ChangeDeckName?ID=${ID}&newName=${newName}`,
+      {}
+    );
   }
 
-  GetDeckById(ID:number):Observable<DeckTable>{
-    return this.http.get<DeckTable>(`${this.baseUrl}api/Deck/GetDeckById?ID=${ID}`,{})
+  DeleteDeck(ID: number) {
+    return this.http.delete<DeckTable>(
+      `${this.baseUrl}api/Deck/DeleteDeck?ID=${ID}`
+    );
   }
 
-  GetCardsByDeckId(ID:string):Observable<CardTable[]>{
-    return this.http.get<CardTable[]>(`${this.baseUrl}api/Deck/GetCardsByDeckId?ID=${ID}`,{})
+  AddCardToDeck(
+    cardId: string,
+    deckId: number,
+    cardName: string
+  ): Observable<DeckTable> {
+    console.log(cardId);
+    console.log(deckId);
+    console.log(cardName);
+    return this.http.post<DeckTable>(
+      `${this.baseUrl}api/Deck/AddCardToDeck?CardId=${cardId}&deckId=${deckId}&cardName=${cardName}`,
+      {}
+    );
   }
 
-
-  DeleteCardFromDeck(ID:number){
-    return this.http.delete<CardTable>(`${this.baseUrl}api/Deck/DeleteCardFromDeck?ID=${ID}`)
+  GetDeckById(ID: number): Observable<DeckTable> {
+    return this.http.get<DeckTable>(
+      `${this.baseUrl}api/Deck/GetDeckById?ID=${ID}`,
+      {}
+    );
   }
 
+  GetCardsByDeckId(ID: string): Observable<CardTable[]> {
+    return this.http.get<CardTable[]>(
+      `${this.baseUrl}api/Deck/GetCardsByDeckId?ID=${ID}`,
+      {}
+    );
+  }
+
+  DeleteCardFromDeck(ID: number) {
+    return this.http.delete<CardTable>(
+      `${this.baseUrl}api/Deck/DeleteCardFromDeck?ID=${ID}`
+    );
+  }
 }
