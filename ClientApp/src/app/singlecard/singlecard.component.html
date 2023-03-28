@@ -1,54 +1,104 @@
-<!--
-<p>{{cardmodel.data[0].name}}</p>
-<h3>Card title: PUT CARD NAME HERE (CMC FOR NOW)</h3>
-<p>Type: CARD TYPE HERE</p>
-<p>ORACLE TEXT HERE</p>
-<p>IF FLAVOR TEXT</p>
-<p>ARTIST</p>
-<p>RARITY</p>
-<p>MARKETPLACE</p>
-<p>MARKETPLACE 2*</p>
-<p>MARKETPLACE 3*</p>
-<p>IF POWER/TOUGHNESS</p>
-
-<img src="" alt="this is a card image">
- -->
-
-<div class="card-details-page">
-  <!-- <img
-      src="{{ cardmodel.data[0].image_uris.border_crop }}"
-      alt="this is a card image"
-    /> -->
-  <div class="card-details-img">
-    <!-- *ngIf="cardmodel.data[0].image_uris; else doubleSided" -->
-    <!-- <img
-      src="{{ cardmodel.data[0].image_uris.border_crop }}"
-      alt="this is a card image"
-    /> -->
-  </div>
-  <div class="card-details-img" #doubleSided>
+<div
+  *ngIf="cardmodel.data[0].card_faces[1].image_uris; else singlesided"
+  class="row container-main"
+>
+  <div class="col-lg-4 col-6">
     <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
   </div>
-
-  <div
-    class="card-details-img"
-    #doubleSided
-    *ngIf="cardmodel.data[0].card_faces[1].image_uris != null"
-  >
+  <div class="col-lg-4 col-6">
     <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
   </div>
-  <div *ngIf="loggedIn">
+  <div class="col-lg-4 col-12 card-details-bg">
+    <h3 class="card-details-headliner">{{ cardmodel.data[0].name }}</h3>
+    <p>{{ cardmodel.data[0].type_line }}</p>
+    <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
+    <p>{{ cardmodel.data[0].card_faces[0].oracle_text }}</p>
+    <p>{{ cardmodel.data[0].card_faces[1].oracle_text }}</p>
+    <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
+    <div class="row">
+      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+        <p class="underline">TCGPlayer</p>
+      </a>
+      <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+        <p class="underline">Cardmarket</p>
+      </a>
+      <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+        <p class="underline">Cardhoarder</p>
+      </a>
+    </div>
+    <div *ngIf="loggedIn">
       <Select>
         <ng-container *ngFor="let d of Deck">
           <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
-        </ng-container >
+        </ng-container>
       </Select>
-    <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)" >Add to Deck</button>
+      <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)">
+        Add to Deck
+      </button>
+    </div>
+  </div>
+</div>
+
+<ng-template #singlesided>
+  <div class="row container-main-single">
+    <div class="col-lg-4 col-sm-12">
+      <img src="{{ cardmodel.data[0].image_uris.border_crop }}" />
+    </div>
+    <div class="col-lg-8 col-sm-12 card-details-bg">
+      <h3 class="card-details-headliner-single">{{ cardmodel.data[0].name }}</h3>
+      <p>{{ cardmodel.data[0].type_line }}</p>
+      <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
+      <p>{{ cardmodel.data[0].oracle_text }}</p>
+      <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
+      <div class="row">
+        <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+          <p class="underline">TCGPlayer</p>
+        </a>
+        <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+          <p class="underline">Cardmarket</p>
+        </a>
+        <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+          <p class="underline">Cardhoarder</p>
+        </a>
+      </div>
+      <div class="row">
+        <div *ngIf="loggedIn">
+          <Select>
+            <ng-container *ngFor="let d of Deck">
+              <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
+            </ng-container>
+          </Select>
+          <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)">
+            Add to Deck
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- <div class="row">
+<div class="card-details-img">
+     *ngIf="cardmodel.data[0].image_uris; else doubleSided"
+<img
+      src="{{ cardmodel.data[0].image_uris.border_crop }}"
+      alt="this is a card image"
+    />
+  <div class="col-12 col-sm-8 row">
+    <div class="card-details-img" #doubleSided>
+      <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
+    </div>
+
+    <div
+      class="card-details-img"
+      #doubleSided
+      *ngIf="cardmodel.data[0].card_faces[1].image_uris != null"
+    >
+      <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
+    </div>
   </div>
 
-  <!-- </div> -->
-
-  <!-- <div *ngIf="cardmodel.data[0].card_faces.length >= 2">
+  <div *ngIf="cardmodel.data[0].card_faces.length >= 2">
     <p>doublesided</p>
 
   <div *ngIf="cardmodel.data[0].card_faces.length < 2">
@@ -57,9 +107,9 @@
       src="{{ cardmodel.data[0].image_uris.border_crop }}"
       alt="this is a card image"
     />
-  </div> -->
-  <div class="card-details">
-    <h1>{{ cardmodel.data[0].name }}</h1>
+  </div>
+  <div class="card-details col-12 col-sm-4">
+    <h1 class="">{{ cardmodel.data[0].name }}</h1>
     <p>{{ cardmodel.data[0].type_line }}</p>
     <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
     <p>
@@ -69,21 +119,18 @@
       {{ cardmodel.data[0].card_faces[0].oracle_text }}
     </p>
     <p class="ital">{{ cardmodel.data[0].flavor_text }}</p>
-    <!-- <p *ngIf="cardmodel.data[0].power != null">
-          {{cardmodel.data[0].power}}/{{cardmodel.data[0].toughness}}
-        </p> -->
     <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
-    <div class="buy-card">
-      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+    <div class="row">
+      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
         <p class="underline">TCGPlayer</p>
       </a>
-      <!-- {{ConvertStringToNumber(cardmodel.data[0].prices.usd )| currency:'USD'}} -->
-      <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
         <p class="underline">Cardmarket</p>
       </a>
-      <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
         <p class="underline">Cardhoarder</p>
       </a>
     </div>
   </div>
-</div>
+  
+</div> -->

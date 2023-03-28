@@ -57,6 +57,7 @@ export interface Card_Face{
     normal:string;
     image_uris: Image_Uris;
     artist:string;
+    flavor_text:string;
 }
 
 export interface Card_Faces{

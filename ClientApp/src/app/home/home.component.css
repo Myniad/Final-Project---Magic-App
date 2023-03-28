@@ -5,14 +5,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 48px;
+    font-size: 4rem;
     font-style: italic;
     color: var(--accent);
     font-family: 'Berkshire Swash', cursive;
 }
 
 #showcase img {
-    transform: translateY(-40px);
+    /* transform: translateY(-40px); */
     position: absolute;
     top: 0;
     left: 0;

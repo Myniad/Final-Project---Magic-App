@@ -12,16 +12,6 @@
         </div>  
         
         <ng-template #doubleSided class="img-container">
-          <!-- <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img src="{{c.card_faces[0].image_uris.border_crop}}" alt="">
-              </div>
-              <div class="flip-card-back">
-                <img src="{{c.card_faces[1].image_uris.border_crop}}" alt="">
-              </div>
-            </div>
-          </div>  -->
           <a routerLink="/card/{{c.card_faces[0].name}}">
             <img src="{{c.card_faces[0].image_uris.border_crop}}" alt="">
           </a>

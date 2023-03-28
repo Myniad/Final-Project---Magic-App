@@ -1,4 +1,4 @@
-<nav>
+<!-- <nav>
   <div id="nav-left">
     <h1><a routerLink="/" id="logo">Counterspell</a></h1>
     <form id="searchbar" (ngSubmit)="onSubmit()">
@@ -11,11 +11,6 @@
       <button><span class="material-symbols-outlined">search</span></button>
     </form>
   </div>
-
-  <!-- <div id="nav-right">
-      <a href="#">Login</a>
-      <a href="#">Register</a>
-  </div> -->
 
   <div class="container" id="nav-right">
     <div
@@ -66,6 +61,91 @@
       </ul>
     </div>
   </div>
+</nav> -->
 
+<header>
+  <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark">
+    <div class="container">
+      <h1><a routerLink="/" id="logo">Counterspell</a></h1>
+      <form class="col-12 col-sm-8" (ngSubmit)="onSubmit()">
+        <input
+          class="col-11"
+          id="searchbar-input"
+          type="search"
+          placeholder="Target player searches their library for..."
+          [(ngModel)]="cardName"
+          name="cardName"
+        />
+        <button class="col-1" id="searchbar">
+          <span class="material-symbols-outlined size">search</span>
+        </button>
+      </form>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="navbar-collapse collapse d-sm-inline-flex justify-content-end"
+        [ngClass]="{ show: isExpanded }"
+      >
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item">
+            <asl-google-signin-button
+              *ngIf="!loggedIn"
+              type="icon"
+              size="medium"
+            ></asl-google-signin-button>
 
-</nav>
+            <div *ngIf="loggedIn">
+              <p>
+                {{ user.name }}
+                <img
+                  src="{{ user.photoUrl }}"
+                  style="width: 30px; height: 30px"
+                />
+                <button
+                  class="btn"
+                  *ngIf="loggedIn"
+                  (click)="signOut()"
+                  style="color: #D3F6DB"
+                >
+                  Sign Out
+                </button>
+              </p>
+            </div>
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            *ngIf="loggedIn"
+          >
+            <a class="nav-link" [routerLink]="['/CreateDeck']"
+              ><p style="color: #D3F6DB">Deck Creation</p></a
+            >
+          </li>
+          <li
+            class="nav-item"
+            [routerLinkActive]="['link-active']"
+            *ngIf="loggedIn"
+          >
+            <a class="nav-link" [routerLink]="['/userdecks']"
+              ><p style="color: #D3F6DB">User Decks</p></a
+            >
+          </li>
+          <li class="nav-item" [routerLinkActive]="['link-active']">
+            <a class="nav-link" [routerLink]="['/Glossary']"
+              ><p style="color: #D3F6DB">Search Glossary</p></a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
