@@ -97,7 +97,10 @@
       >
         <ul class="navbar-nav flex-grow">
           <li class="nav-item">
+
+
             <asl-google-signin-button
+
               *ngIf="!loggedIn"
               type="icon"
               size="medium"
@@ -114,7 +117,7 @@
                   class="btn"
                   *ngIf="loggedIn"
                   (click)="signOut()"
-                  style="color: #D3F6DB"
+                  style="color: #d3f6db"
                 >
                   Sign Out
                 </button>
@@ -127,7 +130,7 @@
             *ngIf="loggedIn"
           >
             <a class="nav-link" [routerLink]="['/CreateDeck']"
-              ><p style="color: #D3F6DB">Deck Creation</p></a
+              ><p style="color: #d3f6db">Deck Creation</p></a
             >
           </li>
           <li
@@ -136,12 +139,12 @@
             *ngIf="loggedIn"
           >
             <a class="nav-link" [routerLink]="['/userdecks']"
-              ><p style="color: #D3F6DB">User Decks</p></a
+              ><p style="color: #d3f6db">User Decks</p></a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link" [routerLink]="['/Glossary']"
-              ><p style="color: #D3F6DB">Search Glossary</p></a
+              ><p style="color: #d3f6db">Search Glossary</p></a
             >
           </li>
         </ul>

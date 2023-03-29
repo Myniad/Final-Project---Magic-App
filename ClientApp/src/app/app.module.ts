@@ -40,7 +40,6 @@ import { GlossaryComponent } from './glossary/glossary.component';
     SocialLoginModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-
       { path: 'Card', component: CardcomponentComponent},
       { path: 'Deckview/:ID', component: DeckviewComponent},
       { path: 'Decklist', component: AlldecksComponent},

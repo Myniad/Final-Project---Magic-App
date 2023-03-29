@@ -3,53 +3,70 @@ import { Router } from '@angular/router';
 import { CardModel } from '../Models/CardModel';
 import { Datum } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
-import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
+import {
+  BaseLoginProvider,
+  GoogleLoginProvider,
+  SocialAuthService,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
+import { Secret } from '../secret';
 
+declare const gapi: any;
 @Component({
   selector: 'app-nav-menu',
   templateUrl: './nav-menu.component.html',
-  styleUrls: ['./nav-menu.component.css']
+  styleUrls: ['./nav-menu.component.css'],
+
+
 })
 export class NavMenuComponent {
-  cardName:string = "";
-  cardmodel:CardModel = {} as CardModel;
-  constructor(private CardsearchService:CardsearchService, private router:Router, private authService: SocialAuthService){}
-  ispaper:boolean[]= [];
-  user:SocialUser = {} as SocialUser;
+  cardName: string = '';
+  cardmodel: CardModel = {} as CardModel;
+  ispaper: boolean[] = [];
+  user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
+  token: string = '';
 
-  ngOnInit():void{
-    // this.signInWithGoogle;
-    this.authService.authState.subscribe((user)=>{
-      this.user=user;
-      this.loggedIn=(user !=null);
-      // console.log(this.user);
-  });
-}
+  constructor(
+    private CardsearchService: CardsearchService,
+    private router: Router,
+    private authService: SocialAuthService
+  ) {}
 
-
-  // signInWithGoogle(): void {
-  //   this.authService.authState.subscribe((user)=>{
-  //     this.user=user;
-  //     this.loggedIn=(user !=null);
-  //     console.log(this.user);
-  //   })
-  //   }
-
-  signOut():void{
-    this.authService.signOut();
-    this.loggedIn=false;
+  ngOnInit(): void {
+    const token = localStorage.getItem('id_token')
+    this.signIn();
+    if (token) {
+      console.log(this.user.idToken);
+      this.authService.signIn(Secret.clientId)
+    } else {
+      this.signIn();
+    }
   }
 
 
+  signIn() {
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = user != null;
+      const idToken = user.idToken;
+      localStorage.setItem('id_token', idToken);
+      let token = localStorage.getItem('id_token');
+    });
+  }
 
+  signOut(): void {
+    this.authService.signOut();
+    this.loggedIn = false;
+    // localStorage.removeItem('id_token');
+      this.router.navigate(['']);
+  }
 
-
-  onSubmit():void{
+  onSubmit(): void {
     //jank refresh
-    this.router.navigateByUrl("/", {skipLocationChange:true}).then(() => {
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
       this.router.navigate([`/search/${this.cardName}`]);
-    })
+    });
   }
 
   isExpanded = false;
@@ -62,3 +79,5 @@ export class NavMenuComponent {
     this.isExpanded = !this.isExpanded;
   }
 }
+
+
