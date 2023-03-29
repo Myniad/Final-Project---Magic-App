@@ -1,7 +1,7 @@
 #showcase {
     position: relative;
     overflow: hidden;
-    height: 40%;
+    height: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,8 +21,12 @@
 }
 
 #showcase p {
+    position: relative;
+    top: 75%;
     z-index: 2;
-    transform: translateY(120px);
+    /* transform: translateY(120px); */
+    transform: translate(-49%, -50%);
+    text-shadow: -1px -1px 1px var(--primary-light)
 }
 
 
@@ -38,3 +42,14 @@
     background: rgb(2,0,36);
     background: linear-gradient(180deg, rgba(2,0,36,0) 0%, rgba(22,26,65,0.4069021358543417) 51%, var(--dark) 100%);
 }
+
+
+.img {
+    width:100%;
+    z-index: 0; }
+    
+    .text-over-img {
+    z-index:1;
+    font-size: 1.2em;
+    margin-top: -100px;
+    }

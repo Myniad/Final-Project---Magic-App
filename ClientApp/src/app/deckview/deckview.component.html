@@ -1,9 +1,7 @@
-<h1>{{Deck.deckName}}</h1>
-<div *ngFor="let c of Cards">
-<a routerLink="/card/{{c.cardName}}">{{c.cardName}}</a>
-<button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+<h1>{{ Deck.deckName }}</h1>
+<div class="row">
+  <div class="col-4" *ngFor="let c of Cards">
+    <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }}</a>
+    <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+  </div>
 </div>
-
-
-
-

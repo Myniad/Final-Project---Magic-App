@@ -1,30 +1,17 @@
+<!-- <div class="col-12">
+  <img src="../../assets/Kruphix_God_of_Horizons.png" class="img" width="100%" />
+  <p class="carousel-caption">WONDER DEVELOP</p>
+</div> -->
 
-
-
-
-
-  <div id="showcase">
-      <img src="../../assets/Kruphix_God_of_Horizons.png" alt="kruphix constellation showcase">
-      <div id="gradient-overlay"></div>
+<div class="row">
+  <div class="container">
+    <div class="col-12" id="showcase">
+      <img
+        src="../../assets/Kruphix_God_of_Horizons.png"
+        alt="kruphix constellation showcase"
+      />
+      <div class="row" id="gradient-overlay"></div>
       <p id="showcase">Expand your horizons...</p>
-  </div>
-
-  <div class="row">
-    <div *ngFor="let c of cardmodel.data; index as i" class="col-sm-4 mb-4">
-      <div class="card" style="width: 18rem">
-        <div *ngIf="ispaper[i]">
-          <p>title: {{ c.name }}</p>
-          <div *ngIf="c.image_uris">
-            <img src="{{ c.image_uris.small }}" alt="" />
-            <p>{{ c.card_back_id }}</p>
-          </div>
-          <img src="{{ c.card_back_id }}" alt="" />
-          <div *ngIf="!c.image_uris">
-            <p>Image not found</p>
-          </div>
-          <p>{{ c.prices.usd | currency }}</p>
-          <a href="{{ c.purchase_uris.tcgplayer }}">tcgplayer</a>
-        </div>
-      </div>
     </div>
   </div>
+</div>
