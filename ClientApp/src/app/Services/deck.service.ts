@@ -52,13 +52,16 @@ export class DeckService {
   AddCardToDeck(
     cardId: string,
     deckId: number,
-    cardName: string
+    cardName: string,
+    typeLine:string,
+    cmc:number,
+    price:string
   ): Observable<DeckTable> {
     console.log(cardId);
     console.log(deckId);
     console.log(cardName);
     return this.http.post<DeckTable>(
-      `${this.baseUrl}api/Deck/AddCardToDeck?CardId=${cardId}&deckId=${deckId}&cardName=${cardName}`,
+      `${this.baseUrl}api/Deck/AddCardToDeck?CardId=${cardId}&deckId=${deckId}&cardName=${cardName}&typeLine=${typeLine}&cmc=${cmc}&price=${price}`,
       {}
     );
   }

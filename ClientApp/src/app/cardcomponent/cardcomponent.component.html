@@ -1,7 +1,7 @@
 
 <div class="cardlist">
 
-  <ng-container *ngIf="cardmodel.data else notFound">
+  <ng-container *ngIf="cardmodel.data">
     <div *ngFor="let c of cardmodel.data; index as i" class="cardcontainer">
       <div class="card">
 
@@ -26,9 +26,9 @@
 
 
 
-  <ng-template #notFound>
+  <!-- <ng-template #notFound>
     <h2>Your Spell Fizzles</h2>
-  </ng-template>
+  </ng-template> -->
 
 
 </div>

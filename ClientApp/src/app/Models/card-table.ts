@@ -3,4 +3,7 @@ export interface CardTable {
   deckId:string;
   cardId:string;
   cardName:string;
+  typeLine:string;
+  price:string;
+  cmc:number;
 }

@@ -51,9 +51,14 @@ public partial class DeckDbContext : DbContext
                 .HasMaxLength(255)
                 .HasColumnName("CardID");
             entity.Property(e => e.CardName).HasMaxLength(255);
+            entity.Property(e => e.Cmc).HasColumnName("CMC");
             entity.Property(e => e.DeckId)
                 .HasMaxLength(255)
                 .HasColumnName("DeckID");
+            entity.Property(e => e.Price).HasMaxLength(255);
+            entity.Property(e => e.TypeLine)
+                .HasMaxLength(255)
+                .HasColumnName("Type_Line");
         });
 
         modelBuilder.Entity<DeckTable>(entity =>

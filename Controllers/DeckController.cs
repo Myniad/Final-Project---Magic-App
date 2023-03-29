@@ -89,13 +89,16 @@ namespace Final_Project___Magic_App.Controllers
 
 
         [HttpPost("AddCardToDeck")]
-        public void addCardToDeck(string cardId, int deckId, string cardName)
+        public void addCardToDeck(string cardId, int deckId, string cardName, string typeLine, string price, int cmc)
         {
             DeckCardTable addCard = new DeckCardTable()
             {
                 CardId = cardId,
                 CardName = cardName,
-                DeckId = deckId.ToString()
+                DeckId = deckId.ToString(),
+                TypeLine = typeLine,
+                Price = price,
+                Cmc = cmc
             };
             dbcontext.DeckCardTables.Add(addCard);
             dbcontext.SaveChanges();

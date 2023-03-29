@@ -13,20 +13,21 @@
 
 #showcase img {
     /* transform: translateY(-40px); */
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     left: 0;
     z-index: 0;
     width: 100%;
 }
 
-#showcase p {
-    position: relative;
-    top: 75%;
+.showcase-p {
     z-index: 2;
     /* transform: translateY(120px); */
-    transform: translate(-49%, -50%);
-    text-shadow: -1px -1px 1px var(--primary-light)
+    text-shadow: -1px -1px 1px var(--primary-light);
+    color: var(--accent);
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 450%;
+    font-style: italic;
 }
 
 
@@ -52,4 +53,17 @@
     z-index:1;
     font-size: 1.2em;
     margin-top: -100px;
+    }
+
+    @media screen and (max-width:1100px) {
+        /* .underline{
+            font-size: 1rem !important;
+             padding: 5px !important;
+        }
+        .card-details{
+            padding: 0px;
+        } */
+        .showcase-p{
+            font-size: 125%;
+        }
     }

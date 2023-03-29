@@ -1,0 +1,23 @@
+
+
+.decktitle{
+    color: var(--accent);
+    font-family: 'Berkshire Swash', cursive;
+    font-size: 450%;
+    text-decoration: underline;
+}
+
+.card-details-bg
+{
+    justify-content: center;
+    background-color: var(--primary-dark);
+    border-radius: 20px;
+}
+
+.typeliner{
+    border-bottom: 1px solid var(--primary-light);
+    padding: 20px 0px;
+    padding-top: 10px;
+    color: var(--accent);
+    font-size: 100%;
+}

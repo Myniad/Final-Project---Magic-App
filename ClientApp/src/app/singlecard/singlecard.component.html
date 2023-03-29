@@ -32,7 +32,7 @@
           <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
         </ng-container>
       </Select>
-      <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)">
+      <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id, cardmodel.data[0].prices.usd, cardmodel.data[0].type_line, cardmodel.data[0].cmc)">
         Add to Deck
       </button>
     </div>
@@ -68,7 +68,7 @@
               <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
             </ng-container>
           </Select>
-          <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id)">
+          <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id, cardmodel.data[0].prices.usd, cardmodel.data[0].type_line, cardmodel.data[0].cmc)">
             Add to Deck
           </button>
         </div>

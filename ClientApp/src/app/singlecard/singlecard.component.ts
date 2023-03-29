@@ -22,6 +22,12 @@ export class SinglecardComponent {
   Deck: DeckTable[] = [];
   currentDeckId: number = 0;
 
+  // price:string = '';
+  // cmc:number = 0;
+  // typeLine:string = '';
+
+
+
   constructor(
     private CardsearchService: CardsearchService,
     private route: ActivatedRoute,
@@ -55,10 +61,10 @@ export class SinglecardComponent {
       });
   }
 
-  AddCardToDeck(deckId: number, cardId: string) {
+  AddCardToDeck(deckId: number, cardId: string, price:string, typeLine:string, cmc:number) {
     console.log(deckId, cardId, this.cardName);
     this.deckService
-      .AddCardToDeck(cardId, deckId, this.cardName)
+      .AddCardToDeck(cardId, deckId, this.cardName, typeLine, cmc, price)
       .subscribe((response: any) => {
         console.log(response);
       });

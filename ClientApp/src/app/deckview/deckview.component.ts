@@ -18,7 +18,7 @@ export class DeckviewComponent {
     private authService: SocialAuthService
   ) {}
   user: SocialUser = {} as SocialUser;
-  loggedIn: boolean = false;
+  loggedIn: boolean = true; //////////////////
   deckName: string = '';
   newDeck: string = '';
 
@@ -34,8 +34,8 @@ export class DeckviewComponent {
     console.log(id);
     this.GetDeckById(id);
     if (this.loggedIn == false) {
-      this.router.navigate(['']);
-      window.location.reload();
+      this.router.navigate(['/']);
+      // window.location.reload();
       console.log("done");
     }
   }

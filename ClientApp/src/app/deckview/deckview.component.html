@@ -1,7 +1,50 @@
-<h1>{{ Deck.deckName }}</h1>
 <div class="row">
-  <div class="col-4" *ngFor="let c of Cards">
-    <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }}</a>
-    <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+  <div class="col-10 mx-auto">
+    <h1 class="decktitle">{{ Deck.deckName }}</h1>
+  </div>
+  <div class="row">
+    <div class="col-9 mx-auto">
+      <p>Deck by: {{ user.name }}</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-10 mx-auto card-details-bg">
+    <p class="typeliner">Creatures</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <p class="typeliner">Sorceries</p>
+      <div *ngIf="c.typeLine.includes('Sorcery')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <p class="typeliner">Instants</p>
+      <div *ngIf="c.typeLine.includes('Instant')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <p class="typeliner">Artifacts</p>
+      <div *ngIf="c.typeLine.includes('Artifact')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <p class="typeliner">Enchantments</p>
+      <div *ngIf="c.typeLine.includes('Enchantment')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <p class="typeliner">Lands</p>
+      <div *ngIf="c.typeLine.includes('Land')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+      </div>
+      <!-- <p>{{c.price | currency}}</p>
+    <p>{{c.typeLine}}</p>
+    <p>{{c.cmc}}</p> -->
+    </div>
   </div>
 </div>
