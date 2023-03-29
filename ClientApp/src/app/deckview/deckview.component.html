@@ -11,13 +11,55 @@
 
 <div class="row">
   <div class="col-10 mx-auto card-details-bg">
-    <p class="typeliner">Creatures</p>
+    <p class="typeliner col-4">Creatures</p>
     <div class="col-4" *ngFor="let c of Cards">
       <div *ngIf="c.typeLine.includes('Creature')">
         <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
+        <button (click)="DeleteCard(c.id)">Remove</button>
       </div>
-      <p class="typeliner">Sorceries</p>
+    </div>
+    <p class="typeliner col-4">Instants</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Instant') && !c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove</button>
+      </div>
+    </div>
+    <p class="typeliner col-4">Sorceries</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Sorcery') && !c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove</button>
+      </div>
+    </div>
+    <p class="typeliner col-4">Artifacts</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Artifact') && !c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove</button>
+      </div>
+    </div>
+    <p class="typeliner col-4">Enchantments</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Enchantment') && !c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove</button>
+      </div>
+    </div>
+    <p class="typeliner col-4">Lands</p>
+    <div class="col-4" *ngFor="let c of Cards">
+      <div *ngIf="c.typeLine.includes('Land') && !c.typeLine.includes('Creature')">
+        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+        <button (click)="DeleteCard(c.id)">Remove</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- <p>{{c.price | currency}}</p>
+    <p>{{c.typeLine}}</p>
+    <p>{{c.cmc}}</p> -->
+<!-- <p class="typeliner">Sorceries</p>
       <div *ngIf="c.typeLine.includes('Sorcery')">
         <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
         <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
@@ -41,10 +83,4 @@
       <div *ngIf="c.typeLine.includes('Land')">
         <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
         <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div>
-      <!-- <p>{{c.price | currency}}</p>
-    <p>{{c.typeLine}}</p>
-    <p>{{c.cmc}}</p> -->
-    </div>
-  </div>
-</div>
+      </div> -->
