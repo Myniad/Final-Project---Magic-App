@@ -34,6 +34,20 @@ namespace Final_Project___Magic_App.Controllers
             }
         }
 
+        [HttpGet("GetSingleCard")]
+        public Datum getSingleCard(string id)
+        {
+            try
+            {
+                return CardDAL.GetSingleCard(id);
+            }
+
+            catch (Exception)
+            {
+                return new Datum();
+            }
+        }
+
         //searching for cards using a fuzzy search
         //fuzzy is a search for all cards matching what the user has typed in 
 

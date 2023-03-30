@@ -18,7 +18,7 @@
         <p class="typeliner">Creatures</p>
         <div class="row" *ngFor="let c of Cards">
           <div *ngIf="c.typeLine.includes('Creature')" class="d-flex justify-content-between">
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -32,7 +32,7 @@
               c.typeLine.includes('Instant') && !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -46,7 +46,7 @@
               c.typeLine.includes('Sorcery') && !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -61,7 +61,7 @@
               !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -76,7 +76,7 @@
               !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -91,7 +91,7 @@
               !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
@@ -105,39 +105,11 @@
               c.typeLine.includes('Land') && !c.typeLine.includes('Creature')
             "
           >
-            <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
+            <a routerLink="/card/{{ c.cardId }}">{{ c.cardName }} </a>
             <button (click)="DeleteCard(c.id)">Remove</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- <p>{{c.price | currency}}</p>
-    <p>{{c.typeLine}}</p>
-    <p>{{c.cmc}}</p> -->
-  <!-- <p class="typeliner">Sorceries</p>
-      <div *ngIf="c.typeLine.includes('Sorcery')">
-        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div>
-      <p class="typeliner">Instants</p>
-      <div *ngIf="c.typeLine.includes('Instant')">
-        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div>
-      <p class="typeliner">Artifacts</p>
-      <div *ngIf="c.typeLine.includes('Artifact')">
-        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div>
-      <p class="typeliner">Enchantments</p>
-      <div *ngIf="c.typeLine.includes('Enchantment')">
-        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div>
-      <p class="typeliner">Lands</p>
-      <div *ngIf="c.typeLine.includes('Land')">
-        <a routerLink="/card/{{ c.cardName }}">{{ c.cardName }} </a>
-        <button (click)="DeleteCard(c.id)">Remove Card From Deck</button>
-      </div> -->
 </div>

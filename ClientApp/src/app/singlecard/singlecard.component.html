@@ -1,28 +1,28 @@
 <div
-  *ngIf="cardmodel.data[0].card_faces[1].image_uris; else singlesided"
+  *ngIf="datum.card_faces[1].image_uris; else singlesided"
   class="row container-main"
 >
   <div class="col-lg-4 col-6">
-    <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
+    <img src="{{ datum.card_faces[0].image_uris.border_crop }}" />
   </div>
   <div class="col-lg-4 col-6">
-    <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
+    <img src="{{ datum.card_faces[1].image_uris.border_crop }}" />
   </div>
   <div class="col-lg-4 col-12 card-details-bg">
-    <h3 class="card-details-headliner">{{ cardmodel.data[0].name }}</h3>
-    <p>{{ cardmodel.data[0].type_line }}</p>
-    <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
-    <p>{{ cardmodel.data[0].card_faces[0].oracle_text }}</p>
-    <p>{{ cardmodel.data[0].card_faces[1].oracle_text }}</p>
-    <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
+    <h3 class="card-details-headliner">{{ datum.name }}</h3>
+    <p>{{ datum.type_line }}</p>
+    <p class="rarity">{{ datum.rarity }}</p>
+    <p>{{ datum.card_faces[0].oracle_text }}</p>
+    <p>{{ datum.card_faces[1].oracle_text }}</p>
+    <p>Illustrated by {{ datum.artist }}</p>
     <div class="row">
-      <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+      <a href="{{ datum.purchase_uris.tcgplayer }}">
         <p class="underline">TCGPlayer</p>
       </a>
-      <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+      <a href="{{ datum.purchase_uris.cardmarket }}">
         <p class="underline">Cardmarket</p>
       </a>
-      <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+      <a href="{{ datum.purchase_uris.cardhoarder }}">
         <p class="underline">Cardhoarder</p>
       </a>
     </div>
@@ -36,10 +36,10 @@
         (click)="
           AddCardToDeck(
             currentDeckId,
-            cardmodel.data[0].id,
-            cardmodel.data[0].prices,
-            cardmodel.data[0].type_line,
-            cardmodel.data[0].cmc
+            datum.id,
+            datum.prices,
+            datum.type_line,
+            datum.cmc
           )
         "
       >
@@ -52,29 +52,29 @@
 <ng-template #singlesided>
   <div class="row container-main-single">
     <div class="col-lg-4 col-sm-12">
-      <img src="{{ cardmodel.data[0].image_uris.border_crop }}" />
+      <img src="{{ datum.image_uris.border_crop }}" />
     </div>
     <div class="col-lg-8 col-sm-12 card-details-bg">
       <h3 class="card-details-headliner-single">
-        {{ cardmodel.data[0].name }}
+        {{ datum.name }}
       </h3>
-      <p>{{ cardmodel.data[0].type_line }}</p>
-      <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
-      <p>{{ cardmodel.data[0].oracle_text }}</p>
-      <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
+      <p>{{ datum.type_line }}</p>
+      <p class="rarity">{{ datum.rarity }}</p>
+      <p>{{ datum.oracle_text }}</p>
+      <p>Illustrated by {{ datum.artist }}</p>
       <div class="row">
         <div class="col-2 mx-auto">
-          <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+          <a href="{{ datum.purchase_uris.tcgplayer }}">
             <p class="underline">TCGPlayer</p>
           </a>
         </div>
         <div class="col-2 mx-auto">
-          <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+          <a href="{{ datum.purchase_uris.cardmarket }}">
             <p class="underline">Cardmarket</p>
           </a>
         </div>
         <div class="col-2 mx-auto">
-          <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+          <a href="{{ datum.purchase_uris.cardhoarder }}">
             <p class="underline">Cardhoarder</p>
           </a>
         </div>
@@ -93,10 +93,10 @@
             (click)="
               AddCardToDeck(
                 currentDeckId,
-                cardmodel.data[0].id,
-                cardmodel.data[0].prices,
-                cardmodel.data[0].type_line,
-                cardmodel.data[0].cmc
+                datum.id,
+                datum.prices,
+                datum.type_line,
+                datum.cmc
               )
             "
           >

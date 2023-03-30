@@ -27,7 +27,30 @@ namespace Final_Project___Magic_App.Models
             Console.WriteLine(result);
             return result;
         }
-        
+
+        public static Datum GetSingleCard(string id)
+
+        {
+            //Setup
+            string url = $"https://api.scryfall.com/cards/{id}";
+
+
+            //request
+            HttpWebRequest request = WebRequest.CreateHttp(url);
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+
+            //Convert it to JSON
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string JSON = reader.ReadToEnd();
+            Console.WriteLine(JSON);
+            Console.WriteLine();
+            Console.WriteLine();
+            //Convert to c#
+            Datum result = JsonConvert.DeserializeObject<Datum>(JSON);
+            Console.WriteLine(result);
+            return result;
+        }
+
         public static List<CardModel> GetFuzzyCard(string search)
 
         {

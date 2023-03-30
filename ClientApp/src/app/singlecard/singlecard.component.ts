@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CardModel } from '../Models/CardModel';
-import { Card_Face, Prices } from '../Models/Datum';
+import { Card_Face, Datum, Prices } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { DeckTable } from '../Models/deck-table';
@@ -16,7 +16,7 @@ import { DeckService } from '../Services/deck.service';
 export class SinglecardComponent {
   public cardName: string = '';
   public isCreature: boolean = false;
-  cardmodel: CardModel = {} as CardModel;
+  datum: Datum = {} as Datum;
   user: SocialUser = {} as SocialUser;
   loggedIn: boolean = false;
   Deck: DeckTable[] = [];
@@ -62,7 +62,7 @@ export class SinglecardComponent {
   }
 
   AddCardToDeck(deckId: number, cardId: string, prices:Prices, typeLine:string, cmc:number) {
-    console.log(deckId, cardId, this.cardName);
+    console.log(deckId, cardId);
     let price = '0';
     if (prices.usd){
       price = prices.usd;
@@ -73,7 +73,7 @@ export class SinglecardComponent {
     else{
       price = prices.usd_etched;
     }
-      this.deckService.AddCardToDeck(cardId, deckId, this.cardName, typeLine, cmc, price)
+      this.deckService.AddCardToDeck(cardId, deckId, this.datum.name, typeLine, cmc, price)
       .subscribe((response: any) => {
         console.log(response);
       });
@@ -87,20 +87,20 @@ export class SinglecardComponent {
   }
 
   getCardExact(): void {
-    this.CardsearchService.getCardExact(this.cardName).subscribe(
-      (response: CardModel) => {
-        this.cardmodel = response;
-        console.log(this.cardmodel, 'HERE');
-        if (this.cardmodel.data[0].card_faces == null) {
-          this.cardmodel.data[0].card_faces = [
+    this.CardsearchService.getSingleCard(this.cardName).subscribe(
+      (response: Datum) => {
+        this.datum = response;
+        console.log(this.datum, 'HERE');
+        if (this.datum.card_faces == null) {
+          this.datum.card_faces = [
             {} as Card_Face,
             {} as Card_Face,
           ];
-          this.cardmodel.data[0].card_faces[0].image_uris =
-            this.cardmodel.data[0].image_uris;
+          this.datum.card_faces[0].image_uris =
+            this.datum.image_uris;
         }
 
-        if (this.cardmodel.data[0].type_line.includes('Creature')) {
+        if (this.datum.type_line.includes('Creature')) {
           this.isCreature = true;
           console.log(this.isCreature);
         }

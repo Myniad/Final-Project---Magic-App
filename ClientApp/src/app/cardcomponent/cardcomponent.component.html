@@ -6,13 +6,13 @@
       <div class="card">
 
         <div *ngIf="c.image_uris else doubleSided" class="img-container">
-          <a routerLink="/card/{{c.name}}">
+          <a routerLink="/card/{{c.id}}">
             <img src="{{ c.image_uris.border_crop }}" alt="" />
           </a>
         </div>  
         
         <ng-template #doubleSided class="img-container">
-          <a routerLink="/card/{{c.card_faces[0].name}}">
+          <a routerLink="/card/{{c.id}}">
             <img src="{{c.card_faces[0].image_uris.border_crop}}" alt="">
           </a>
         </ng-template>
