@@ -1,3 +1,4 @@
+
 <div *ngIf="Deck.length > 0">
   <div *ngFor="let u of Deck; index as i" style="color: #8da1b9" class="row">
     <p class="" (click)="select(i)">Deck {{ i + 1 }} - {{ u.deckName }}</p>

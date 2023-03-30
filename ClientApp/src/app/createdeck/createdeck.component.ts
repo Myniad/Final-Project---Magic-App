@@ -41,7 +41,7 @@ export class CreateDeckComponent {
       .subscribe((response: DeckTable) => {
         console.log(response);
         console.log(this.newDeck, 'after function runs');
-
+        this.router.navigate(['userdecks']);
         this.GetDecks();
       });
   }
