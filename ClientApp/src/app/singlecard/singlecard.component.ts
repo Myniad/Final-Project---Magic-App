@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { CardModel } from '../Models/CardModel';
-import { Card_Face } from '../Models/Datum';
+import { Card_Face, Prices } from '../Models/Datum';
 import { CardsearchService } from '../Services/cardsearch.service';
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { DeckTable } from '../Models/deck-table';
@@ -61,10 +61,19 @@ export class SinglecardComponent {
       });
   }
 
-  AddCardToDeck(deckId: number, cardId: string, price:string, typeLine:string, cmc:number) {
+  AddCardToDeck(deckId: number, cardId: string, prices:Prices, typeLine:string, cmc:number) {
     console.log(deckId, cardId, this.cardName);
-    this.deckService
-      .AddCardToDeck(cardId, deckId, this.cardName, typeLine, cmc, price)
+    let price = '0';
+    if (prices.usd){
+      price = prices.usd;
+    }
+    else if (prices.usd_foil){
+      price = prices.usd_foil;
+    }
+    else{
+      price = prices.usd_etched;
+    }
+      this.deckService.AddCardToDeck(cardId, deckId, this.cardName, typeLine, cmc, price)
       .subscribe((response: any) => {
         console.log(response);
       });

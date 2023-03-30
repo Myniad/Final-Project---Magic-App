@@ -42,7 +42,8 @@ export interface Purchase_Uris{
 
 export interface Prices{
     usd:string;
-
+    usd_foil:string;
+    usd_etched:string;
 }
 
 export interface Card_Face{

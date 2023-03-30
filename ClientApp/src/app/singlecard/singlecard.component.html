@@ -37,7 +37,7 @@
           AddCardToDeck(
             currentDeckId,
             cardmodel.data[0].id,
-            cardmodel.data[0].prices.usd,
+            cardmodel.data[0].prices,
             cardmodel.data[0].type_line,
             cardmodel.data[0].cmc
           )
@@ -94,7 +94,7 @@
               AddCardToDeck(
                 currentDeckId,
                 cardmodel.data[0].id,
-                cardmodel.data[0].prices.usd,
+                cardmodel.data[0].prices,
                 cardmodel.data[0].type_line,
                 cardmodel.data[0].cmc
               )
@@ -108,60 +108,3 @@
   </div>
 </ng-template>
 
-<!-- <div class="row">
-<div class="card-details-img">
-     *ngIf="cardmodel.data[0].image_uris; else doubleSided"
-<img
-      src="{{ cardmodel.data[0].image_uris.border_crop }}"
-      alt="this is a card image"
-    />
-  <div class="col-12 col-sm-8 row">
-    <div class="card-details-img" #doubleSided>
-      <img src="{{ cardmodel.data[0].card_faces[0].image_uris.border_crop }}" />
-    </div>
-
-    <div
-      class="card-details-img"
-      #doubleSided
-      *ngIf="cardmodel.data[0].card_faces[1].image_uris != null"
-    >
-      <img src="{{ cardmodel.data[0].card_faces[1].image_uris.border_crop }}" />
-    </div>
-  </div>
-
-  <div *ngIf="cardmodel.data[0].card_faces.length >= 2">
-    <p>doublesided</p>
-
-  <div *ngIf="cardmodel.data[0].card_faces.length < 2">
-    <p>singlesided</p>
-    <img
-      src="{{ cardmodel.data[0].image_uris.border_crop }}"
-      alt="this is a card image"
-    />
-  </div>
-  <div class="card-details col-12 col-sm-4">
-    <h1 class="">{{ cardmodel.data[0].name }}</h1>
-    <p>{{ cardmodel.data[0].type_line }}</p>
-    <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
-    <p>
-      {{ cardmodel.data[0].oracle_text }}
-    </p>
-    <p #doubleSided>
-      {{ cardmodel.data[0].card_faces[0].oracle_text }}
-    </p>
-    <p class="ital">{{ cardmodel.data[0].flavor_text }}</p>
-    <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
-    <div class="row">
-      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
-        <p class="underline">TCGPlayer</p>
-      </a>
-      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
-        <p class="underline">Cardmarket</p>
-      </a>
-      <a class="col-4" href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
-        <p class="underline">Cardhoarder</p>
-      </a>
-    </div>
-  </div>
-  
-</div> -->
