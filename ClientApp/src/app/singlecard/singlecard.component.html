@@ -32,7 +32,17 @@
           <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
         </ng-container>
       </Select>
-      <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id, cardmodel.data[0].prices.usd, cardmodel.data[0].type_line, cardmodel.data[0].cmc)">
+      <button
+        (click)="
+          AddCardToDeck(
+            currentDeckId,
+            cardmodel.data[0].id,
+            cardmodel.data[0].prices.usd,
+            cardmodel.data[0].type_line,
+            cardmodel.data[0].cmc
+          )
+        "
+      >
         Add to Deck
       </button>
     </div>
@@ -45,30 +55,51 @@
       <img src="{{ cardmodel.data[0].image_uris.border_crop }}" />
     </div>
     <div class="col-lg-8 col-sm-12 card-details-bg">
-      <h3 class="card-details-headliner-single">{{ cardmodel.data[0].name }}</h3>
+      <h3 class="card-details-headliner-single">
+        {{ cardmodel.data[0].name }}
+      </h3>
       <p>{{ cardmodel.data[0].type_line }}</p>
       <p class="rarity">{{ cardmodel.data[0].rarity }}</p>
       <p>{{ cardmodel.data[0].oracle_text }}</p>
       <p>Illustrated by {{ cardmodel.data[0].artist }}</p>
       <div class="row">
-        <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
-          <p class="underline">TCGPlayer</p>
-        </a>
-        <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
-          <p class="underline">Cardmarket</p>
-        </a>
-        <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
-          <p class="underline">Cardhoarder</p>
-        </a>
+        <div class="col-2 mx-auto">
+          <a href="{{ cardmodel.data[0].purchase_uris.tcgplayer }}">
+            <p class="underline">TCGPlayer</p>
+          </a>
+        </div>
+        <div class="col-2 mx-auto">
+          <a href="{{ cardmodel.data[0].purchase_uris.cardmarket }}">
+            <p class="underline">Cardmarket</p>
+          </a>
+        </div>
+        <div class="col-2 mx-auto">
+          <a href="{{ cardmodel.data[0].purchase_uris.cardhoarder }}">
+            <p class="underline">Cardhoarder</p>
+          </a>
+        </div>
+      </div>
+      <div class="row">
+<p>  </p>
       </div>
       <div class="row">
         <div *ngIf="loggedIn">
-          <Select>
+          <Select class="textboxfit" style="color: black; background-color: #D3F6DB; border-radius: 2px;">
             <ng-container *ngFor="let d of Deck">
-              <option (click)="currentDeckId = d.id">{{ d.deckName }}</option>
+              <option style="color: black;" (click)="currentDeckId = d.id">{{ d.deckName }}</option>
             </ng-container>
           </Select>
-          <button (click)="AddCardToDeck(currentDeckId, cardmodel.data[0].id, cardmodel.data[0].prices.usd, cardmodel.data[0].type_line, cardmodel.data[0].cmc)">
+          <button style="color: black; background-color: #D3F6DB;"
+            (click)="
+              AddCardToDeck(
+                currentDeckId,
+                cardmodel.data[0].id,
+                cardmodel.data[0].prices.usd,
+                cardmodel.data[0].type_line,
+                cardmodel.data[0].cmc
+              )
+            "
+          >
             Add to Deck
           </button>
         </div>

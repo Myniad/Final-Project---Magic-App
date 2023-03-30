@@ -48,6 +48,19 @@ export class DeckviewComponent {
     });
   }
 
+  TotalCost():number{
+
+    let result = 0;
+    this.Cards.forEach(c=>{ 
+      if(c.price != null && c.price != 'null'){
+        result += Number(c.price)
+    }
+
+    })
+    return result;
+  } 
+
+
   GetDeckById(ID: number) {
     this.deckService.GetDeckById(ID).subscribe((response: DeckTable) => {
       console.log(response);

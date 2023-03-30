@@ -51,12 +51,12 @@ nav {
 
 }
 
-/* #searchbar {
-  display: flex;
+#searchbar {
+  /* display: flex; */
   align-items: center;
-  max-width: 1%;
-  flex-grow: 1;
-} */
+  max-width: 3%;
+  /* flex-grow: 1; */
+}
 
 #searchbar-input {
   background-color: var(--dark);
