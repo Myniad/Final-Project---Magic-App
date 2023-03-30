@@ -1,0 +1,12 @@
+
+.headliner{
+    border-bottom: 1px solid var(--primary-light);
+    padding: 20px 0px;
+    padding-top: 10px;
+    color: var(--accent);
+    padding-left: 12px;
+}
+
+.backgroundcol{
+    background-color: var(--primary-dark);
+}
