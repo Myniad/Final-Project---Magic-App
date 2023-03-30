@@ -18,7 +18,7 @@ export class DeckviewComponent {
     private authService: SocialAuthService
   ) {}
   user: SocialUser = {} as SocialUser;
-  loggedIn: boolean = true; //////////////////
+  loggedIn: boolean = false;
   deckName: string = '';
   newDeck: string = '';
 
