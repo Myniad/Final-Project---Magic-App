@@ -67,8 +67,11 @@ export class DeckviewComponent {
       this.Deck = response;
       this.deckService
         .GetCardsByDeckId(ID.toString())
+        
         .subscribe((result: CardTable[]) => {
+
           this.Cards = result;
+          this.Cards.sort((a,b)=>(a.cardName > b.cardName)?1:-1);
         });
     });
   }
